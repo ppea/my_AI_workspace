@@ -1,223 +1,182 @@
 # my_AI_workspace
 
-Clone, bootstrap, code. A ready-to-use OpenCode workspace with **257 capabilities** out of the box.
+> **The most complete AI coding workspace you can clone in 30 seconds.**
+
+A production-ready [OpenCode](https://opencode.ai) workspace that assembles the best open-source AI agent layers into one unified, reproducible environment. Stop configuring. Start building.
+
+```bash
+git clone https://github.com/ppea/my_AI_workspace my-project
+cd my-project
+./scripts/bootstrap.sh
+opencode
+```
+
+---
+
+## Why my_AI_workspace?
+
+Most developers spend hours wiring up AI tools — installing plugins, hunting for skills, tuning model configs, writing prompt templates. **my_AI_workspace does all of that for you, once, reproducibly.**
+
+| Pain point | What this solves |
+|---|---|
+| "I have to set up AI tools from scratch for every project" | Clone once, bootstrap once, reuse everywhere |
+| "I don't know what skills/agents are available" | 257 capabilities catalogued in `registry.yaml` + `CATALOG.md` |
+| "My team uses different configs" | Profiles (`minimal`, `daily-dev`, `full-stack`) checked into git |
+| "Anthropic/OpenAI API keys are expensive" | Works with **GitHub Copilot OAuth** — no direct API keys required |
+| "I want to use Claude/GPT/Gemini" | All routed through GitHub Copilot: 21+ models, one login |
+| "I need agents for different tasks" | 11 specialized agents: orchestrator, coder, architect, reviewer, planner... |
+
+---
+
+## What's Inside
+
+**257 capabilities across 4 layers, zero manual wiring.**
 
 ```
-git clone <this-repo> my-project && cd my-project && ./scripts/bootstrap.sh
+11 Agents  ·  3 MCPs  ·  239 Skills  ·  4 Commands
 ```
 
-## How It Works
+### Layer 1 — oh-my-opencode (Agent Orchestration)
 
-```mermaid
-graph TB
-    You([You]) -->|opencode| OC[OpenCode CLI]
+11 specialized AI agents, each with a distinct role:
 
-    OC --> L1
-    OC --> L2
-    OC --> L3
-    OC --> L4
+| Agent | Role |
+|---|---|
+| **Sisyphus** | Persistent orchestrator — breaks down and delegates complex tasks |
+| **Hephaestus** | Code generation — turns specs into working implementation |
+| **Prometheus** | Architecture & planning — designs systems before they're built |
+| **Oracle** | Knowledge & research — answers questions, finds patterns |
+| **Atlas** | Refactoring — safely restructures existing codebases |
+| **Metis** | Strategic planning — long-horizon project management |
+| **Momus** | Code review — finds bugs, anti-patterns, and improvements |
+| **Librarian** | Context management — keeps long sessions coherent |
+| **Explore** | Codebase search — fast navigation and discovery |
+| **Multimodal** | Vision — reads screenshots, diagrams, and mockups |
+| **Sisyphus Jr** | Light tasks — fast, cheap execution for simple ops |
 
-    subgraph L1 [oh-my-opencode]
-        direction LR
-        Agents[11 Agents]
-        MCPs[3 MCPs]
-        BuiltIn[3 Built-in Skills]
-    end
+3 MCPs for live context: **websearch** · **context7** (live docs) · **grep_app** (code search)
 
-    subgraph L2 [superpowers]
-        direction LR
-        SP[14 Methodology Skills]
-    end
-
-    subgraph L3 [Skill Catalogs]
-        direction LR
-        AN[Anthropic 16 Skills]
-        CP[Copilot 198 Skills]
-    end
-
-    subgraph L4 [OpenSpec]
-        direction LR
-        OS[4 Skills + 4 Commands]
-    end
-
-    L1 --> LLM[LLM Provider]
-    LLM --> GH[GitHub Copilot]
-    LLM --> API[Anthropic / OpenAI API]
-
-    style You fill:#f9f,stroke:#333
-    style OC fill:#4a9eff,stroke:#333,color:#fff
-    style L1 fill:#ff6b6b22,stroke:#ff6b6b
-    style L2 fill:#ffd93d22,stroke:#ffd93d
-    style L3 fill:#6bcb7722,stroke:#6bcb77
-    style L4 fill:#4d96ff22,stroke:#4d96ff
+Activate full multi-agent orchestration with a single keyword:
 ```
+ultrawork   # or: ulw
+```
+
+### Layer 2 — superpowers (Development Methodology)
+
+14 methodology skills that enforce disciplined engineering:
+
+- `/brainstorm` — Socratic design refinement before you write a line
+- `/write-plan` — Structured implementation plan with checkpoints
+- `/execute-plan` — TDD-driven execution with automated verification
+- Code review, security audit, performance profiling, and more
+
+### Layer 3 — Skill Catalogs (214 community skills)
+
+The largest open skill collections, pre-installed and namespaced:
+
+- **198 skills** from [github/awesome-copilot](https://github.com/github/awesome-copilot) — DevOps, CI/CD, testing, refactoring, security, MCP generators, language-specific skills (Python, Go, Rust, Java, C#, Swift, Kotlin, PHP, Ruby...)
+- **16 skills** from [anthropics/skills](https://github.com/anthropics/skills) — frontend design, MCP builder, webapp testing, document generation (docx, pdf, pptx, xlsx), canvas design
+
+### Layer 4 — OpenSpec (Spec-Driven Development)
+
+Formalize changes before implementing them:
+
+- `/opsx:propose` — Generate a machine-readable spec from your intent
+- `/opsx:apply` — Implement spec tasks one by one, with review gates
+
+---
 
 ## Quick Start
 
-### 1. Install prerequisites
+### Prerequisites
 
 ```bash
 brew install git node anomalyco/tap/opencode
 ```
 
-### 2. Clone and bootstrap
+### 1. Clone and bootstrap
 
 ```bash
-git clone <this-repo> my-project
+git clone https://github.com/ppea/my_AI_workspace my-project
 cd my-project
 ./scripts/bootstrap.sh
 ```
 
-### 3. Authenticate
+Bootstrap handles everything: submodule init, plugin install, model config, skill symlinking, profile activation, registry generation, and a health check.
+
+### 2. Authenticate (GitHub Copilot — no API key needed)
 
 ```bash
-opencode auth login    # select GitHub Copilot, Anthropic, or OpenAI
+opencode auth login   # choose GitHub Copilot
 ```
 
-### 4. Start coding
+GitHub Copilot OAuth gives you access to **21+ models** including Claude Sonnet/Opus, GPT-4.1/5, and Gemini 2.5 Pro — all from one login.
+
+### 3. Start coding
 
 ```bash
 opencode
 ```
 
-That's it. All 257 capabilities are ready to use.
+All 257 capabilities are immediately available.
 
-## What's Inside
+---
 
-```mermaid
-graph LR
-    subgraph Agents
-        S[Sisyphus<br/>Orchestrator]
-        H[Hephaestus<br/>Code Gen]
-        P[Prometheus<br/>Architecture]
-        O[Oracle<br/>Knowledge]
-        A[Atlas<br/>Refactoring]
-        M[Metis<br/>Planning]
-        Mo[Momus<br/>Code Review]
-        Li[Librarian<br/>Context]
-        Ex[Explore<br/>Search]
-        ML[Multimodal<br/>Vision]
-        SJ[Sisyphus Jr<br/>Light Tasks]
-    end
+## Model Coverage
 
-    subgraph MCPs
-        WS[websearch]
-        C7[context7]
-        GA[grep_app]
-    end
+All models routed through **GitHub Copilot OAuth** — one login, no separate API keys:
 
-    subgraph Skills [239 Skills]
-        direction TB
-        SP[Superpowers x14<br/>TDD, Planning, Review]
-        AN[Anthropic x16<br/>Frontend, Docs, MCP]
-        CP[Copilot x198<br/>DevOps, Testing, CI/CD,<br/>Refactoring, Security,<br/>MCP Generators, ...]
-        BI[Built-in x3<br/>Playwright, Git, UI/UX]
-        OX[OpenSpec x4<br/>Spec-driven Dev]
-        CU[Custom x2+<br/>Your own skills]
-    end
+| Model | Used by |
+|---|---|
+| `github-copilot/claude-opus-4.6` | Sisyphus, Oracle, Prometheus, Metis, Momus |
+| `github-copilot/claude-sonnet-4.5` | Librarian, Atlas, general tasks |
+| `github-copilot/claude-haiku-4.5` | Explore, Multimodal (fast + cheap) |
+| `github-copilot/gpt-5`, `gpt-4.1` | Available on demand |
+| `github-copilot/gemini-2.5-pro` | Available on demand |
 
-    style Agents fill:#ff6b6b11,stroke:#ff6b6b
-    style MCPs fill:#4d96ff11,stroke:#4d96ff
-    style Skills fill:#6bcb7711,stroke:#6bcb77
-```
+Switch models at any time inside OpenCode — no config changes needed.
 
-## Key Commands
-
-| Command | What It Does |
-|---------|-------------|
-| `ultrawork` (or `ulw`) | Full multi-agent orchestration |
-| `/brainstorm` | Socratic design refinement |
-| `/write-plan` | Create an implementation plan |
-| `/execute-plan` | Execute plan with TDD checkpoints |
-| `/opsx:propose` | Start a spec-driven change |
-| `/opsx:apply` | Implement tasks from a spec |
+---
 
 ## Profiles
 
-Switch how much capability is active:
+Match the active capability set to your current task:
 
 ```bash
-./scripts/switch-profile.sh <profile>
+./scripts/switch-profile.sh minimal      # fast, low-resource
+./scripts/switch-profile.sh daily-dev    # balanced default
+./scripts/switch-profile.sh full-stack   # everything, max concurrency
 ```
 
-```mermaid
-graph LR
-    subgraph minimal
-        direction TB
-        m1[7 agents]
-        m2[1 MCP]
-        m3[1 skill built-in]
-    end
+| Profile | Agents | MCPs | Concurrency |
+|---|---|---|---|
+| `minimal` | 7 | 1 | 1 |
+| `daily-dev` | 10 | 3 | 3 |
+| `full-stack` | 11 | 3 | 5 + auto_resume |
 
-    subgraph daily-dev [daily-dev default]
-        direction TB
-        d1[10 agents]
-        d2[3 MCPs]
-        d3[all skills]
-    end
+---
 
-    subgraph full-stack
-        direction TB
-        f1[11 agents]
-        f2[3 MCPs]
-        f3[all skills]
-        f4[auto_resume]
-    end
+## Capability Registry
 
-    minimal -->|more| daily-dev -->|max| full-stack
+Every capability is catalogued and searchable:
 
-    style minimal fill:#ffd93d22,stroke:#ffd93d
-    style daily-dev fill:#6bcb7722,stroke:#6bcb77
-    style full-stack fill:#ff6b6b22,stroke:#ff6b6b
+```bash
+cat registry.yaml    # machine-readable: 257 entries
+cat CATALOG.md       # human-readable: grouped by category
 ```
 
-## Bootstrap Flow
+Regenerate after any change:
 
-```mermaid
-flowchart TD
-    A[git clone] --> B[bootstrap.sh]
-    B --> C[Init submodules]
-    C --> D[Install oh-my-opencode]
-    D --> E[Copy model config]
-    E --> F[Symlink skills]
-    F --> F1[superpowers 14]
-    F --> F2[anthropic 16]
-    F --> F3[copilot 198]
-    F --> F4[custom 2+]
-    F1 & F2 & F3 & F4 --> G[Init OpenSpec]
-    G --> H[Apply daily-dev profile]
-    H --> I[Generate registry]
-    I --> J[Run doctor.sh]
-    J --> K{All checks pass?}
-    K -->|Yes| L[Ready to use]
-    K -->|No| M[Fix warnings and re-run]
-
-    style L fill:#6bcb77,stroke:#333,color:#fff
-    style M fill:#ffd93d,stroke:#333
+```bash
+python3 scripts/gen-registry.py   # rebuild registry.yaml
+python3 scripts/gen-catalog.py    # rebuild CATALOG.md
 ```
 
-## Directory Layout
-
-```
-my-project/
-├── .opencode/                # OpenCode config + OpenSpec commands
-├── config/                   # Template configs (model assignments)
-├── vendor/                   # Git submodules (5 repos)
-│   ├── oh-my-opencode/       #   agents + MCPs + built-in skills
-│   ├── superpowers/          #   methodology skills
-│   ├── anthropic-skills/     #   task skills
-│   ├── awesome-copilot/      #   community skills (198)
-│   └── openspec/             #   spec-driven dev
-├── profiles/                 # minimal / daily-dev / full-stack
-├── scripts/                  # bootstrap, doctor, update, switch-profile
-├── skills/custom/            # your own skills go here
-├── registry.yaml             # capability registry (auto-generated)
-└── CATALOG.md                # human-readable catalog (auto-generated)
-```
+---
 
 ## Add Your Own Skills
 
-Create `skills/custom/<name>/SKILL.md`:
+Drop a `SKILL.md` file into `skills/custom/<name>/`:
 
 ```markdown
 ---
@@ -230,27 +189,103 @@ description: Use when the user asks for X
 Your skill instructions here.
 ```
 
-Run `./scripts/bootstrap.sh` to symlink it, or manually:
+Run `./scripts/bootstrap.sh` — it's automatically symlinked and added to the registry.
 
-```bash
-ln -s "$(pwd)/skills/custom/my-skill" ~/.config/opencode/skills/custom-my-skill
+---
+
+## Directory Layout
+
 ```
+my-project/
+├── .opencode/              # OpenCode project config + OpenSpec commands
+├── config/                 # Template configs (model assignments per agent)
+├── vendor/                 # Git submodules — pinned, updatable
+│   ├── oh-my-opencode/     #   11 agents, 3 MCPs, 3 built-in skills
+│   ├── superpowers/        #   14 methodology skills
+│   ├── anthropic-skills/   #   16 task skills
+│   ├── awesome-copilot/    #   198 community skills
+│   └── openspec/           #   spec-driven dev CLI + skills
+├── profiles/               # minimal / daily-dev / full-stack configs
+├── scripts/                # bootstrap, doctor, update, switch-profile
+├── skills/custom/          # your own skills (auto-symlinked on bootstrap)
+├── registry.yaml           # single source of truth — all 257 capabilities
+└── CATALOG.md              # human-readable capability catalog
+```
+
+---
 
 ## Maintenance
 
 ```bash
-./scripts/update.sh          # update submodules + regenerate registry
-./scripts/doctor.sh          # run health checks
+./scripts/update.sh          # pull latest submodules + regenerate registry
+./scripts/doctor.sh          # run health checks (symlinks, config, registry)
 ./scripts/switch-profile.sh  # switch active profile
 ```
 
-## Components
+---
 
-| Layer | Repository | Count |
-|-------|-----------|-------|
-| oh-my-opencode | [code-yeongyu/oh-my-opencode](https://github.com/code-yeongyu/oh-my-opencode) | 11 agents, 3 MCPs, 3 skills |
-| superpowers | [obra/superpowers](https://github.com/obra/superpowers) | 14 skills |
-| anthropics/skills | [anthropics/skills](https://github.com/anthropics/skills) | 16 skills |
-| awesome-copilot | [github/awesome-copilot](https://github.com/github/awesome-copilot) | 198 skills |
-| OpenSpec | [Fission-AI/OpenSpec](https://github.com/Fission-AI/OpenSpec) | 4 skills, 4 commands |
-| custom | your own | 2+ skills |
+## Architecture
+
+```mermaid
+graph TB
+    You([Developer]) -->|opencode| OC[OpenCode CLI]
+
+    OC --> L1
+    OC --> L2
+    OC --> L3
+    OC --> L4
+
+    subgraph L1 [Layer 1 · oh-my-opencode]
+        direction LR
+        AG[11 Specialized Agents]
+        MC[3 MCPs]
+        BS[3 Built-in Skills]
+    end
+
+    subgraph L2 [Layer 2 · superpowers]
+        direction LR
+        SP[14 Methodology Skills<br/>TDD · Planning · Review]
+    end
+
+    subgraph L3 [Layer 3 · Skill Catalogs]
+        direction LR
+        AN[Anthropic · 16 Skills]
+        CP[Copilot · 198 Skills]
+    end
+
+    subgraph L4 [Layer 4 · OpenSpec]
+        direction LR
+        OS[Spec-Driven Dev<br/>4 Skills · 4 Commands]
+    end
+
+    L1 --> LLM[GitHub Copilot OAuth]
+    LLM --> M1[Claude Opus / Sonnet / Haiku]
+    LLM --> M2[GPT-4.1 / GPT-5]
+    LLM --> M3[Gemini 2.5 Pro]
+
+    style You fill:#6366f1,stroke:#4f46e5,color:#fff
+    style OC fill:#4a9eff,stroke:#2563eb,color:#fff
+    style L1 fill:#ff6b6b18,stroke:#ff6b6b
+    style L2 fill:#ffd93d18,stroke:#ffd93d
+    style L3 fill:#6bcb7718,stroke:#6bcb77
+    style L4 fill:#4d96ff18,stroke:#4d96ff
+    style LLM fill:#f97316,stroke:#ea580c,color:#fff
+```
+
+---
+
+## Components & Credits
+
+| Layer | Source | What it provides |
+|---|---|---|
+| [oh-my-opencode](https://github.com/code-yeongyu/oh-my-opencode) | code-yeongyu | 11 agents, 3 MCPs, 3 built-in skills |
+| [superpowers](https://github.com/obra/superpowers) | obra | 14 development methodology skills |
+| [anthropic/skills](https://github.com/anthropics/skills) | Anthropic | 16 task skills (frontend, docs, MCP, office) |
+| [awesome-copilot](https://github.com/github/awesome-copilot) | GitHub | 198 community skills across all domains |
+| [OpenSpec](https://github.com/Fission-AI/OpenSpec) | Fission-AI | Spec-driven development workflow |
+
+---
+
+## License
+
+[MIT](LICENSE) — Neo Yan 2026
