@@ -10,6 +10,7 @@ AI-assisted software development.
 | **oh-my-opencode** | [code-yeongyu/oh-my-opencode](https://github.com/code-yeongyu/oh-my-opencode) | Agent orchestration plugin (11 agents, 3 MCPs) |
 | **superpowers** | [obra/superpowers](https://github.com/obra/superpowers) | Development methodology skills (TDD, planning, code review) |
 | **anthropics/skills** | [anthropics/skills](https://github.com/anthropics/skills) | Task skills (frontend, docs, MCP builder, testing) |
+| **awesome-copilot** | [github/awesome-copilot](https://github.com/github/awesome-copilot) | Community skills (DevOps, CI/CD, testing, MCP generators, 198 skills) |
 | **OpenSpec** | [Fission-AI/OpenSpec](https://github.com/Fission-AI/OpenSpec) | Spec-driven development workflow |
 
 ## Prerequisites
@@ -31,10 +32,11 @@ The bootstrap script will:
 1. Initialize and sync all git submodules
 2. Install oh-my-opencode via `npx`/`bunx`
 3. Symlink superpowers plugin and skills
-4. Symlink Anthropic skills
-5. Install OpenSpec CLI and initialize project assets
-6. Apply the `daily-dev` profile
-7. Run `doctor.sh` to verify the setup
+4. Symlink Anthropic skills (16 skills)
+5. Symlink Copilot community skills (198 skills)
+6. Install OpenSpec CLI and initialize project assets
+7. Apply the `daily-dev` profile
+8. Run `doctor.sh` to verify the setup
 
 Then authenticate your provider:
 
@@ -79,6 +81,11 @@ web-artifacts-builder, webapp-testing, xlsx
 
 **OmO Built-in (3):** playwright, git-master, frontend-ui-ux
 
+**Copilot Community (198):** refactor, playwright-generate-test, create-specification,
+create-implementation-plan, conventional-commit, review-and-refactor, pytest-coverage,
+csharp-mcp-server-generator, python-mcp-server-generator, go-mcp-server-generator,
+and 188 more. See `CATALOG.md` for the full list.
+
 **OpenSpec (4):** openspec-propose, openspec-explore, openspec-apply-change,
 openspec-archive-change
 
@@ -114,13 +121,19 @@ Re-link Anthropic skills after submodule update:
 ./scripts/install-anthropic-skills.sh
 ```
 
+Re-link Copilot community skills after submodule update:
+
+```bash
+./scripts/install-copilot-skills.sh
+```
+
 ## Directory Layout
 
 ```
 my_AI_workspace/
 ├── .opencode/              OpenCode config + OpenSpec skills/commands
 ├── config/                 Template configs (OmO model assignments)
-├── vendor/                 Git submodules (oh-my-opencode, superpowers, etc.)
+├── vendor/                 Git submodules (oh-my-opencode, superpowers, anthropic, copilot, openspec)
 ├── profiles/               OmO config presets (minimal, daily-dev, full-stack)
 ├── scripts/                Bootstrap, doctor, update, profile switching
 ├── skills/custom/          Your own skills (SKILL.md format)

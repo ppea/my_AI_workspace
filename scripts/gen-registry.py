@@ -220,16 +220,16 @@ def scan_skill_dirs(base_dir: Path, vendor: str, path_prefix: str,
 def scan_omo_agents(profiles: dict[str, dict]) -> list[dict]:
     """Return hardcoded OmO agent entries (agents are defined in TS, not SKILL.md)."""
     agents_raw = [
-        ("sisyphus", "Persistent task executor — primary orchestrator for complex multi-step work", "anthropic/claude-opus-4-6"),
+        ("sisyphus", "Persistent task executor — primary orchestrator for complex multi-step work", "github-copilot/claude-opus-4.6"),
         ("hephaestus", "Code generation specialist — crafts implementation from specs and plans", "system-default"),
-        ("oracle", "Knowledge retrieval and deep question answering", "anthropic/claude-opus-4-6"),
-        ("librarian", "Codebase indexing, file discovery, and context gathering", "anthropic/claude-sonnet-4-5"),
-        ("explore", "Fast codebase exploration — file search, grep, quick reads", "anthropic/claude-haiku-4-5"),
-        ("atlas", "Large-scale refactoring and cross-file changes", "anthropic/claude-sonnet-4-5"),
-        ("prometheus", "Architecture design and system-level reasoning", "anthropic/claude-opus-4-6"),
-        ("metis", "Strategic planning and task decomposition", "anthropic/claude-opus-4-6"),
-        ("momus", "Code review and critical feedback", "anthropic/claude-opus-4-6"),
-        ("multimodal-looker", "Image and visual content analysis", "anthropic/claude-haiku-4-5"),
+        ("oracle", "Knowledge retrieval and deep question answering", "github-copilot/claude-opus-4.6"),
+        ("librarian", "Codebase indexing, file discovery, and context gathering", "github-copilot/claude-sonnet-4.5"),
+        ("explore", "Fast codebase exploration — file search, grep, quick reads", "github-copilot/claude-haiku-4.5"),
+        ("atlas", "Large-scale refactoring and cross-file changes", "github-copilot/claude-sonnet-4.5"),
+        ("prometheus", "Architecture design and system-level reasoning", "github-copilot/claude-opus-4.6"),
+        ("metis", "Strategic planning and task decomposition", "github-copilot/claude-opus-4.6"),
+        ("momus", "Code review and critical feedback", "github-copilot/claude-opus-4.6"),
+        ("multimodal-looker", "Image and visual content analysis", "github-copilot/claude-haiku-4.5"),
         ("sisyphus-junior", "Lightweight task executor for simpler background work", "system-default"),
     ]
     entries = []
@@ -360,20 +360,13 @@ def build_registry() -> dict:
         profiles=profiles,
     ))
 
-    # --- Future vendor slots ---
-    # Uncomment as submodules are added:
-    # all_entries.extend(scan_skill_dirs(
-    #     ROOT_DIR / "vendor" / "openai-skills" / "skills",
-    #     vendor="openai-skills",
-    #     path_prefix="vendor/openai-skills/skills",
-    #     profiles=profiles,
-    # ))
-    # all_entries.extend(scan_skill_dirs(
-    #     ROOT_DIR / "vendor" / "awesome-copilot" / "skills",
-    #     vendor="awesome-copilot",
-    #     path_prefix="vendor/awesome-copilot/skills",
-    #     profiles=profiles,
-    # ))
+    # 9. Awesome-Copilot skills (github/awesome-copilot)
+    all_entries.extend(scan_skill_dirs(
+        ROOT_DIR / "vendor" / "awesome-copilot" / "skills",
+        vendor="awesome-copilot",
+        path_prefix="vendor/awesome-copilot/skills",
+        profiles=profiles,
+    ))
 
     # Collect unique categories
     categories = sorted({e["category"] for e in all_entries})

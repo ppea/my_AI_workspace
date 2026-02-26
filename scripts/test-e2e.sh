@@ -66,7 +66,7 @@ else
 fi
 
 # Verify submodules populated
-for submod in oh-my-opencode superpowers anthropic-skills openspec; do
+for submod in oh-my-opencode superpowers anthropic-skills awesome-copilot openspec; do
   if [ -d "${CLONE_DIR}/vendor/${submod}/.git" ] || [ -f "${CLONE_DIR}/vendor/${submod}/.git" ]; then
     pass "submodule vendor/${submod} populated"
   else
@@ -94,6 +94,7 @@ expected_files=(
   "scripts/switch-profile.sh"
   "scripts/gen-registry.py"
   "scripts/gen-catalog.py"
+  "scripts/install-copilot-skills.sh"
   "skills/custom/find-skills/SKILL.md"
   "skills/custom/code-simplifier/SKILL.md"
 )
@@ -177,6 +178,15 @@ for skill in "${ROOT_DIR}/vendor/anthropic-skills/skills"/*; do
 done
 log "Linked Anthropic skills"
 
+# install_copilot_skills
+for skill in "${ROOT_DIR}/vendor/awesome-copilot/skills"/*; do
+  [ -d "$skill" ] || continue
+  [ -f "${skill}/SKILL.md" ] || continue
+  name="$(basename "$skill")"
+  link_dir "$skill" "${USER_OC_SKILLS_DIR}/copilot-${name}"
+done
+log "Linked Copilot skills"
+
 # install_custom_skills
 for skill in "${ROOT_DIR}/skills/custom"/*; do
   [ -d "$skill" ] || continue
@@ -257,6 +267,17 @@ else
   fail "Only ${anthropic_count} Anthropic skill symlinks (expected >= 10)"
 fi
 
+# Count Copilot skill symlinks
+copilot_count=0
+for skill in "${FAKE_OC}/skills"/copilot-*; do
+  [ -L "$skill" ] && copilot_count=$((copilot_count + 1))
+done
+if [ "$copilot_count" -ge 150 ]; then
+  pass "Copilot skills linked: ${copilot_count}"
+else
+  fail "Only ${copilot_count} Copilot skill symlinks (expected >= 150)"
+fi
+
 # Count custom skill symlinks
 custom_count=0
 for skill in "${FAKE_OC}/skills"/custom-*; do
@@ -291,10 +312,10 @@ with open('${CLONE_DIR}/registry.yaml') as f:
     r = yaml.safe_load(f)
     print(r['meta']['total_count'])
 ")
-  if [ "$entry_count" -ge 50 ]; then
-    pass "Registry has ${entry_count} entries (>= 50 expected)"
+  if [ "$entry_count" -ge 200 ]; then
+    pass "Registry has ${entry_count} entries (>= 200 expected)"
   else
-    fail "Registry only has ${entry_count} entries (expected >= 50)"
+    fail "Registry only has ${entry_count} entries (expected >= 200)"
   fi
 else
   skip "python3 not available — cannot verify registry"

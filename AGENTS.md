@@ -4,6 +4,7 @@ This workspace combines:
 - oh-my-opencode as the OpenCode plugin layer
 - superpowers as the workflow and methodology skill layer
 - anthropic/open-source skills as an additional skill catalog
+- awesome-copilot as a community skill catalog (198 skills)
 - OpenSpec as the spec-driven development workflow layer
 
 Primary goals:
@@ -33,6 +34,13 @@ Workflow: brainstorm -> write plan -> execute plan with subagent-driven TDD.
 Includes: frontend-design, mcp-builder, webapp-testing, skill-creator,
 canvas-design, algorithmic-art, doc-coauthoring, and document skills (docx, pdf, pptx, xlsx).
 
+### Layer 3b: Awesome-Copilot Skills (Community Skills)
+198 skills symlinked at `~/.config/opencode/skills/copilot-*`.
+From github/awesome-copilot — the largest open collection of Copilot Agent skills.
+Covers: DevOps, CI/CD, testing, refactoring, documentation, MCP server generators,
+language-specific skills (C#, Java, Python, Kotlin, Go, Rust, Ruby, PHP, Swift),
+Azure, Power Platform, and more.
+
 ### Layer 4: OpenSpec (Spec-Driven Development)
 Skills at `.opencode/skills/openspec-*`, commands at `.opencode/command/opsx-*.md`.
 Use `/opsx:propose` to start a spec-driven change, `/opsx:apply` to implement it.
@@ -60,7 +68,7 @@ To discover capabilities by category or vendor, read `registry.yaml` directly.
 - `registry.yaml` — single source of truth for all workspace capabilities
 - `CATALOG.md` — human-friendly Markdown view of the registry
 - `config/` — template configs (OmO model assignments, copied to ~/.config on bootstrap)
-- `vendor/` — git submodules (oh-my-opencode, superpowers, anthropic-skills, openspec)
+- `vendor/` — git submodules (oh-my-opencode, superpowers, anthropic-skills, awesome-copilot, openspec)
 - `profiles/` — OmO config presets
 - `scripts/` — bootstrap.sh, doctor.sh, update.sh, switch-profile.sh, gen-registry.py, gen-catalog.py
 - `skills/custom/` — place your own skills here

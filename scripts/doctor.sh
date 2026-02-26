@@ -62,6 +62,7 @@ main() {
   check_path_exists "${ROOT_DIR}/vendor/oh-my-opencode"
   check_path_exists "${ROOT_DIR}/vendor/superpowers"
   check_path_exists "${ROOT_DIR}/vendor/anthropic-skills"
+  check_path_exists "${ROOT_DIR}/vendor/awesome-copilot"
   check_path_exists "${ROOT_DIR}/vendor/openspec"
 
   check_symlink_target "${USER_OC_DIR}/plugins/superpowers.js"
@@ -76,6 +77,17 @@ main() {
     ok "anthropic skills linked: ${anthropic_count} found"
   else
     warn "no anthropic skill symlinks in ${USER_OC_DIR}/skills/"
+  fi
+
+  # Copilot skill symlinks (awesome-copilot)
+  local copilot_count=0
+  for skill in "${USER_OC_DIR}/skills"/copilot-*; do
+    [ -L "$skill" ] && copilot_count=$((copilot_count + 1))
+  done
+  if [ "$copilot_count" -gt 0 ]; then
+    ok "copilot skills linked: ${copilot_count} found"
+  else
+    warn "no copilot skill symlinks in ${USER_OC_DIR}/skills/"
   fi
 
   # OpenSpec generated assets
@@ -128,6 +140,9 @@ main() {
 
   # User-level opencode.json
   check_path_exists "${USER_OC_DIR}/opencode.json"
+  if [ -f "${USER_OC_DIR}/opencode.json" ] && grep -q '"oh-my-opencode@latest"' "${USER_OC_DIR}/opencode.json" 2>/dev/null; then
+    warn "user opencode.json has @latest suffix — run bootstrap to fix"
+  fi
 
   printf "[doctor] Done\n"
 }

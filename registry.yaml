@@ -9,20 +9,20 @@
 meta:
   version: 1
   updated: '2026-02-26'
-  total_count: 59
+  total_count: 257
   counts:
     agent: 11
-    skill: 41
+    skill: 239
     mcp: 3
     command: 4
-categories: [ai-tooling, code-quality, creative, devops, documentation, frontend, testing, workflow]
+categories: [ai-tooling, code-quality, creative, devops, documentation, frontend, security, testing, workflow]
 entries:
 - name: sisyphus
   type: agent
   category: workflow
   vendor: oh-my-opencode
   path: vendor/oh-my-opencode/src/agents/
-  model: anthropic/claude-opus-4-6
+  model: github-copilot/claude-opus-4.6
   description: Persistent task executor — primary orchestrator for complex multi-step work
   profiles: [daily-dev, full-stack, minimal]
 - name: hephaestus
@@ -38,7 +38,7 @@ entries:
   category: ai-tooling
   vendor: oh-my-opencode
   path: vendor/oh-my-opencode/src/agents/
-  model: anthropic/claude-opus-4-6
+  model: github-copilot/claude-opus-4.6
   description: Knowledge retrieval and deep question answering
   profiles: [daily-dev, full-stack]
 - name: librarian
@@ -46,7 +46,7 @@ entries:
   category: ai-tooling
   vendor: oh-my-opencode
   path: vendor/oh-my-opencode/src/agents/
-  model: anthropic/claude-sonnet-4-5
+  model: github-copilot/claude-sonnet-4.5
   description: Codebase indexing, file discovery, and context gathering
   profiles: [daily-dev, full-stack, minimal]
 - name: explore
@@ -54,7 +54,7 @@ entries:
   category: ai-tooling
   vendor: oh-my-opencode
   path: vendor/oh-my-opencode/src/agents/
-  model: anthropic/claude-haiku-4-5
+  model: github-copilot/claude-haiku-4.5
   description: Fast codebase exploration — file search, grep, quick reads
   profiles: [daily-dev, full-stack, minimal]
 - name: atlas
@@ -62,7 +62,7 @@ entries:
   category: code-quality
   vendor: oh-my-opencode
   path: vendor/oh-my-opencode/src/agents/
-  model: anthropic/claude-sonnet-4-5
+  model: github-copilot/claude-sonnet-4.5
   description: Large-scale refactoring and cross-file changes
   profiles: [daily-dev, full-stack, minimal]
 - name: prometheus
@@ -70,7 +70,7 @@ entries:
   category: workflow
   vendor: oh-my-opencode
   path: vendor/oh-my-opencode/src/agents/
-  model: anthropic/claude-opus-4-6
+  model: github-copilot/claude-opus-4.6
   description: Architecture design and system-level reasoning
   profiles: [daily-dev, full-stack, minimal]
 - name: metis
@@ -78,7 +78,7 @@ entries:
   category: workflow
   vendor: oh-my-opencode
   path: vendor/oh-my-opencode/src/agents/
-  model: anthropic/claude-opus-4-6
+  model: github-copilot/claude-opus-4.6
   description: Strategic planning and task decomposition
   profiles: [daily-dev, full-stack]
 - name: momus
@@ -86,7 +86,7 @@ entries:
   category: code-quality
   vendor: oh-my-opencode
   path: vendor/oh-my-opencode/src/agents/
-  model: anthropic/claude-opus-4-6
+  model: github-copilot/claude-opus-4.6
   description: Code review and critical feedback
   profiles: [daily-dev, full-stack]
 - name: multimodal-looker
@@ -94,7 +94,7 @@ entries:
   category: ai-tooling
   vendor: oh-my-opencode
   path: vendor/oh-my-opencode/src/agents/
-  model: anthropic/claude-haiku-4-5
+  model: github-copilot/claude-haiku-4.5
   description: Image and visual content analysis
   profiles: [full-stack]
 - name: sisyphus-junior
@@ -452,4 +452,1472 @@ entries:
   vendor: custom
   path: skills/custom/find-skills/SKILL.md
   description: Helps users discover agent skills — checks the local workspace registry first, then searches the remote skills.
+  profiles: [daily-dev, full-stack, minimal]
+- name: add-educational-comments
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/add-educational-comments/SKILL.md
+  description: Add educational comments to the file specified, or prompt asking for file to comment if one is not provided.
+  profiles: [daily-dev, full-stack, minimal]
+- name: agent-governance
+  type: skill
+  category: ai-tooling
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/agent-governance/SKILL.md
+  description: Patterns and techniques for adding governance, safety, and trust controls to AI agent systems.
+  profiles: [daily-dev, full-stack, minimal]
+- name: agentic-eval
+  type: skill
+  category: ai-tooling
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/agentic-eval/SKILL.md
+  description: Patterns and techniques for evaluating and improving AI agent outputs.
+  profiles: [daily-dev, full-stack, minimal]
+- name: ai-prompt-engineering-safety-review
+  type: skill
+  category: code-quality
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/ai-prompt-engineering-safety-review/SKILL.md
+  description: Comprehensive AI prompt engineering safety review and improvement prompt.
+  profiles: [daily-dev, full-stack, minimal]
+- name: appinsights-instrumentation
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/appinsights-instrumentation/SKILL.md
+  description: Instrument a webapp to send useful telemetry data to Azure App Insights
+  profiles: [daily-dev, full-stack, minimal]
+- name: apple-appstore-reviewer
+  type: skill
+  category: code-quality
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/apple-appstore-reviewer/SKILL.md
+  description: Serves as a reviewer of the codebase with instructions on looking for Apple App Store optimizations or rejection
+    reasons.
+  profiles: [daily-dev, full-stack, minimal]
+- name: arch-linux-triage
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/arch-linux-triage/SKILL.md
+  description: Triage and resolve Arch Linux issues with pacman, systemd, and rolling-release best practices.
+  profiles: [daily-dev, full-stack, minimal]
+- name: architecture-blueprint-generator
+  type: skill
+  category: documentation
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/architecture-blueprint-generator/SKILL.md
+  description: Comprehensive project architecture blueprint generator that analyzes codebases to create detailed architectural
+    documentation.
+  profiles: [daily-dev, full-stack, minimal]
+- name: aspire
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/aspire/SKILL.md
+  description: Aspire skill covering the Aspire CLI, AppHost orchestration, service discovery, integrations, MCP server, VS
+    Code extension, Dev Containers, GitHub Codespaces, templates, dashboard, and deployment.
+  profiles: [daily-dev, full-stack, minimal]
+- name: aspnet-minimal-api-openapi
+  type: skill
+  category: documentation
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/aspnet-minimal-api-openapi/SKILL.md
+  description: Create ASP.NET Minimal API endpoints with proper OpenAPI documentation
+  profiles: [daily-dev, full-stack, minimal]
+- name: az-cost-optimize
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/az-cost-optimize/SKILL.md
+  description: Analyze Azure resources used in the app (IaC files and/or resources in a target rg) and optimize costs - creating
+    GitHub issues for identified optimizations.
+  profiles: [daily-dev, full-stack, minimal]
+- name: azure-deployment-preflight
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/azure-deployment-preflight/SKILL.md
+  description: Performs comprehensive preflight validation of Bicep deployments to Azure, including template syntax validation,
+    what-if analysis, and permission checks.
+  profiles: [daily-dev, full-stack, minimal]
+- name: azure-devops-cli
+  type: skill
+  category: creative
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/azure-devops-cli/SKILL.md
+  description: Manage Azure DevOps resources via CLI including projects, repos, pipelines, builds, pull requests, work items,
+    artifacts, and service endpoints.
+  profiles: [daily-dev, full-stack, minimal]
+- name: azure-resource-health-diagnose
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/azure-resource-health-diagnose/SKILL.md
+  description: Analyze Azure resource health, diagnose issues from logs and telemetry, and create a remediation plan for identified
+    problems.
+  profiles: [daily-dev, full-stack, minimal]
+- name: azure-resource-visualizer
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/azure-resource-visualizer/SKILL.md
+  description: Analyze Azure resource groups and generate detailed Mermaid architecture diagrams showing the relationships
+    between individual resources.
+  profiles: [daily-dev, full-stack, minimal]
+- name: azure-role-selector
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/azure-role-selector/SKILL.md
+  description: When user is asking for guidance for which role to assign to an identity given desired permissions, this agent
+    helps them understand the role that will meet the requirements with least privilege access and how to apply that role.
+  profiles: [daily-dev, full-stack, minimal]
+- name: azure-static-web-apps
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/azure-static-web-apps/SKILL.md
+  description: Helps create, configure, and deploy Azure Static Web Apps using the SWA CLI.
+  profiles: [daily-dev, full-stack, minimal]
+- name: bigquery-pipeline-audit
+  type: skill
+  category: security
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/bigquery-pipeline-audit/SKILL.md
+  description: Audits Python + BigQuery pipelines for cost safety, idempotency, and production readiness. Returns a structured
+    report with exact patch locations.
+  profiles: [daily-dev, full-stack, minimal]
+- name: boost-prompt
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/boost-prompt/SKILL.md
+  description: 'Interactive prompt refinement workflow: interrogates scope, deliverables, constraints; copies final markdown
+    to clipboard; never writes code. Requires the Joyride extension.'
+  profiles: [daily-dev, full-stack, minimal]
+- name: breakdown-epic-arch
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/breakdown-epic-arch/SKILL.md
+  description: Prompt for creating the high-level technical architecture for an Epic, based on a Product Requirements Document.
+  profiles: [daily-dev, full-stack, minimal]
+- name: breakdown-epic-pm
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/breakdown-epic-pm/SKILL.md
+  description: Prompt for creating an Epic Product Requirements Document (PRD) for a new epic. This PRD will be used as input
+    for generating a technical architecture specification.
+  profiles: [daily-dev, full-stack, minimal]
+- name: breakdown-feature-implementation
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/breakdown-feature-implementation/SKILL.md
+  description: Prompt for creating detailed feature implementation plans, following Epoch monorepo structure.
+  profiles: [daily-dev, full-stack, minimal]
+- name: breakdown-feature-prd
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/breakdown-feature-prd/SKILL.md
+  description: Prompt for creating Product Requirements Documents (PRDs) for new features, based on an Epic.
+  profiles: [daily-dev, full-stack, minimal]
+- name: breakdown-plan
+  type: skill
+  category: testing
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/breakdown-plan/SKILL.md
+  description: Issue Planning and Automation prompt that generates comprehensive project plans with Epic > Feature > Story/Enabler
+    > Test hierarchy, dependencies, priorities, and automated tracking.
+  profiles: [daily-dev, full-stack, minimal]
+- name: breakdown-test
+  type: skill
+  category: testing
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/breakdown-test/SKILL.md
+  description: Test Planning and Quality Assurance prompt that generates comprehensive test strategies, task breakdowns, and
+    quality validation plans for GitHub projects.
+  profiles: [daily-dev, full-stack, minimal]
+- name: centos-linux-triage
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/centos-linux-triage/SKILL.md
+  description: Triage and resolve CentOS issues using RHEL-compatible tooling, SELinux-aware practices, and firewalld.
+  profiles: [daily-dev, full-stack, minimal]
+- name: chrome-devtools
+  type: skill
+  category: ai-tooling
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/chrome-devtools/SKILL.md
+  description: Expert-level browser automation, debugging, and performance analysis using Chrome DevTools MCP.
+  profiles: [daily-dev, full-stack, minimal]
+- name: code-exemplars-blueprint-generator
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/code-exemplars-blueprint-generator/SKILL.md
+  description: Technology-agnostic prompt generator that creates customizable AI prompts for scanning codebases and identifying
+    high-quality code exemplars.
+  profiles: [daily-dev, full-stack, minimal]
+- name: comment-code-generate-a-tutorial
+  type: skill
+  category: code-quality
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/comment-code-generate-a-tutorial/SKILL.md
+  description: Transform this Python script into a polished, beginner-friendly project by refactoring the code, adding clear
+    instructional comments, and generating a complete markdown tutorial.
+  profiles: [daily-dev, full-stack, minimal]
+- name: containerize-aspnet-framework
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/containerize-aspnet-framework/SKILL.md
+  description: Containerize an ASP.NET .NET Framework project by creating Dockerfile and .dockerfile files customized for
+    the project.
+  profiles: [daily-dev, full-stack, minimal]
+- name: containerize-aspnetcore
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/containerize-aspnetcore/SKILL.md
+  description: Containerize an ASP.NET Core project by creating Dockerfile and .dockerfile files customized for the project.
+  profiles: [daily-dev, full-stack, minimal]
+- name: context-map
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/context-map/SKILL.md
+  description: Generate a map of all files relevant to a task before making changes
+  profiles: [daily-dev, full-stack, minimal]
+- name: conventional-commit
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/conventional-commit/SKILL.md
+  description: Prompt and workflow for generating conventional commit messages using a structured XML format.
+  profiles: [daily-dev, full-stack, minimal]
+- name: convert-plaintext-to-md
+  type: skill
+  category: documentation
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/convert-plaintext-to-md/SKILL.md
+  description: Convert a text-based document to markdown following instructions from prompt, or if a documented option is
+    passed, follow the instructions for that option.
+  profiles: [daily-dev, full-stack, minimal]
+- name: copilot-cli-quickstart
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/copilot-cli-quickstart/SKILL.md
+  description: Use this skill when someone wants to learn GitHub Copilot CLI from scratch.
+  profiles: [daily-dev, full-stack, minimal]
+- name: copilot-instructions-blueprint-generator
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/copilot-instructions-blueprint-generator/SKILL.md
+  description: Technology-agnostic blueprint generator for creating comprehensive copilot-instructions.
+  profiles: [daily-dev, full-stack, minimal]
+- name: copilot-sdk
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/copilot-sdk/SKILL.md
+  description: Build agentic applications with GitHub Copilot SDK.
+  profiles: [daily-dev, full-stack, minimal]
+- name: copilot-usage-metrics
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/copilot-usage-metrics/SKILL.md
+  description: Retrieve and display GitHub Copilot usage metrics for organizations and enterprises using the GitHub CLI and
+    REST API.
+  profiles: [daily-dev, full-stack, minimal]
+- name: cosmosdb-datamodeling
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/cosmosdb-datamodeling/SKILL.md
+  description: 'Step-by-step guide for capturing key application requirements for NoSQL use-case and produce Azure Cosmos
+    DB Data NoSQL Model design using best practices and common patterns, artifacts_produced: "cosmosdb_requirements.'
+  profiles: [daily-dev, full-stack, minimal]
+- name: create-agentsmd
+  type: skill
+  category: ai-tooling
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/create-agentsmd/SKILL.md
+  description: Prompt for generating an AGENTS.md file for a repository
+  profiles: [daily-dev, full-stack, minimal]
+- name: create-architectural-decision-record
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/create-architectural-decision-record/SKILL.md
+  description: Create an Architectural Decision Record (ADR) document for AI-optimized decision documentation.
+  profiles: [daily-dev, full-stack, minimal]
+- name: create-github-action-workflow-specification
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/create-github-action-workflow-specification/SKILL.md
+  description: Create a formal specification for an existing GitHub Actions CI/CD workflow, optimized for AI consumption and
+    workflow maintenance.
+  profiles: [daily-dev, full-stack, minimal]
+- name: create-github-issue-feature-from-specification
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/create-github-issue-feature-from-specification/SKILL.md
+  description: Create GitHub Issue for feature request from specification file using feature_request.yml template.
+  profiles: [daily-dev, full-stack, minimal]
+- name: create-github-issues-feature-from-implementation-plan
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/create-github-issues-feature-from-implementation-plan/SKILL.md
+  description: Create GitHub Issues from implementation plan phases using feature_request.yml or chore_request.yml templates.
+  profiles: [daily-dev, full-stack, minimal]
+- name: create-github-issues-for-unmet-specification-requirements
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/create-github-issues-for-unmet-specification-requirements/SKILL.md
+  description: Create GitHub Issues for unimplemented requirements from specification files using feature_request.yml template.
+  profiles: [daily-dev, full-stack, minimal]
+- name: create-github-pull-request-from-specification
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/create-github-pull-request-from-specification/SKILL.md
+  description: Create GitHub Pull Request for feature request from specification file using pull_request_template.md template.
+  profiles: [daily-dev, full-stack, minimal]
+- name: create-implementation-plan
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/create-implementation-plan/SKILL.md
+  description: Create a new implementation plan file for new features, refactoring existing code or upgrading packages, design,
+    architecture or infrastructure.
+  profiles: [daily-dev, full-stack, minimal]
+- name: create-llms
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/create-llms/SKILL.md
+  description: Create an llms.txt file from scratch based on repository structure following the llms.txt specification at
+    https://llmstxt.org/
+  profiles: [daily-dev, full-stack, minimal]
+- name: create-oo-component-documentation
+  type: skill
+  category: documentation
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/create-oo-component-documentation/SKILL.md
+  description: Create comprehensive, standardized documentation for object-oriented components following industry best practices
+    and architectural documentation standards.
+  profiles: [daily-dev, full-stack, minimal]
+- name: create-readme
+  type: skill
+  category: documentation
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/create-readme/SKILL.md
+  description: Create a README.md file for the project
+  profiles: [daily-dev, full-stack, minimal]
+- name: create-specification
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/create-specification/SKILL.md
+  description: Create a new specification file for the solution, optimized for Generative AI consumption.
+  profiles: [daily-dev, full-stack, minimal]
+- name: create-spring-boot-java-project
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/create-spring-boot-java-project/SKILL.md
+  description: Create Spring Boot Java Project Skeleton
+  profiles: [daily-dev, full-stack, minimal]
+- name: create-spring-boot-kotlin-project
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/create-spring-boot-kotlin-project/SKILL.md
+  description: Create Spring Boot Kotlin Project Skeleton
+  profiles: [daily-dev, full-stack, minimal]
+- name: create-technical-spike
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/create-technical-spike/SKILL.md
+  description: Create time-boxed technical spike documents for researching and resolving critical development decisions before
+    implementation.
+  profiles: [daily-dev, full-stack, minimal]
+- name: create-tldr-page
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/create-tldr-page/SKILL.md
+  description: Create a tldr page from documentation URLs and command examples, requiring both URL and command name.
+  profiles: [daily-dev, full-stack, minimal]
+- name: create-web-form
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/create-web-form/SKILL.md
+  description: Create robust, accessible web forms with best practices for HTML structure, CSS styling, JavaScript interactivity,
+    form validation, and server-side processing.
+  profiles: [daily-dev, full-stack, minimal]
+- name: csharp-async
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/csharp-async/SKILL.md
+  description: Get best practices for C# async programming
+  profiles: [daily-dev, full-stack, minimal]
+- name: csharp-docs
+  type: skill
+  category: documentation
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/csharp-docs/SKILL.md
+  description: Ensure that C# types are documented with XML comments and follow best practices for documentation.
+  profiles: [daily-dev, full-stack, minimal]
+- name: csharp-mcp-server-generator
+  type: skill
+  category: ai-tooling
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/csharp-mcp-server-generator/SKILL.md
+  description: Generate a complete MCP server project in C# with tools, prompts, and proper configuration
+  profiles: [daily-dev, full-stack, minimal]
+- name: csharp-mstest
+  type: skill
+  category: testing
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/csharp-mstest/SKILL.md
+  description: Get best practices for MSTest 3.x/4.x unit testing, including modern assertion APIs and data-driven tests
+  profiles: [daily-dev, full-stack, minimal]
+- name: csharp-nunit
+  type: skill
+  category: testing
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/csharp-nunit/SKILL.md
+  description: Get best practices for NUnit unit testing, including data-driven tests
+  profiles: [daily-dev, full-stack, minimal]
+- name: csharp-tunit
+  type: skill
+  category: testing
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/csharp-tunit/SKILL.md
+  description: Get best practices for TUnit unit testing, including data-driven tests
+  profiles: [daily-dev, full-stack, minimal]
+- name: csharp-xunit
+  type: skill
+  category: testing
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/csharp-xunit/SKILL.md
+  description: Get best practices for XUnit unit testing, including data-driven tests
+  profiles: [daily-dev, full-stack, minimal]
+- name: dataverse-python-advanced-patterns
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/dataverse-python-advanced-patterns/SKILL.md
+  description: Generate production code for Dataverse SDK using advanced patterns, error handling, and optimization techniques.
+  profiles: [daily-dev, full-stack, minimal]
+- name: dataverse-python-production-code
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/dataverse-python-production-code/SKILL.md
+  description: Generate production-ready Python code using Dataverse SDK with error handling, optimization, and best practices
+  profiles: [daily-dev, full-stack, minimal]
+- name: dataverse-python-quickstart
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/dataverse-python-quickstart/SKILL.md
+  description: Generate Python SDK setup + CRUD + bulk + paging snippets using official patterns.
+  profiles: [daily-dev, full-stack, minimal]
+- name: dataverse-python-usecase-builder
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/dataverse-python-usecase-builder/SKILL.md
+  description: Generate complete solutions for specific Dataverse SDK use cases with architecture recommendations
+  profiles: [daily-dev, full-stack, minimal]
+- name: debian-linux-triage
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/debian-linux-triage/SKILL.md
+  description: Triage and resolve Debian Linux issues with apt, systemd, and AppArmor-aware guidance.
+  profiles: [daily-dev, full-stack, minimal]
+- name: declarative-agents
+  type: skill
+  category: ai-tooling
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/declarative-agents/SKILL.md
+  description: Complete development kit for Microsoft 365 Copilot declarative agents with three comprehensive workflows (basic,
+    advanced, validation), TypeSpec support, and Microsoft 365 Agents Toolkit integration
+  profiles: [daily-dev, full-stack, minimal]
+- name: devops-rollout-plan
+  type: skill
+  category: testing
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/devops-rollout-plan/SKILL.md
+  description: Generate comprehensive rollout plans with preflight checks, step-by-step deployment, verification signals,
+    rollback procedures, and communication plans for infrastructure and application changes
+  profiles: [daily-dev, full-stack, minimal]
+- name: documentation-writer
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/documentation-writer/SKILL.md
+  description: Diátaxis Documentation Expert. An expert technical writer specializing in creating high-quality software documentation,
+    guided by the principles and structure of the Diátaxis technical documentation authoring framework.
+  profiles: [daily-dev, full-stack, minimal]
+- name: dotnet-best-practices
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/dotnet-best-practices/SKILL.md
+  description: Ensure .NET/C# code meets best practices for the solution/project.
+  profiles: [daily-dev, full-stack, minimal]
+- name: dotnet-design-pattern-review
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/dotnet-design-pattern-review/SKILL.md
+  description: Review the C#/.NET code for design pattern implementation and suggest improvements.
+  profiles: [daily-dev, full-stack, minimal]
+- name: dotnet-upgrade
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/dotnet-upgrade/SKILL.md
+  description: Ready-to-use prompts for comprehensive .NET framework upgrade analysis and execution
+  profiles: [daily-dev, full-stack, minimal]
+- name: editorconfig
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/editorconfig/SKILL.md
+  description: Generates a comprehensive and best-practice-oriented .editorconfig file based on project analysis and user
+    preferences.
+  profiles: [daily-dev, full-stack, minimal]
+- name: ef-core
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/ef-core/SKILL.md
+  description: Get best practices for Entity Framework Core
+  profiles: [daily-dev, full-stack, minimal]
+- name: entra-agent-user
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/entra-agent-user/SKILL.md
+  description: Create Agent Users in Microsoft Entra ID from Agent Identities, enabling AI agents to act as digital workers
+    with user identity capabilities in Microsoft 365 and Azure environments.
+  profiles: [daily-dev, full-stack, minimal]
+- name: excalidraw-diagram-generator
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/excalidraw-diagram-generator/SKILL.md
+  description: Generate Excalidraw diagrams from natural language descriptions.
+  profiles: [daily-dev, full-stack, minimal]
+- name: fabric-lakehouse
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/fabric-lakehouse/SKILL.md
+  description: Use this skill to get context about Fabric Lakehouse and its features for software systems and AI-powered functions.
+  profiles: [daily-dev, full-stack, minimal]
+- name: fedora-linux-triage
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/fedora-linux-triage/SKILL.md
+  description: Triage and resolve Fedora issues with dnf, systemd, and SELinux-aware guidance.
+  profiles: [daily-dev, full-stack, minimal]
+- name: finalize-agent-prompt
+  type: skill
+  category: ai-tooling
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/finalize-agent-prompt/SKILL.md
+  description: Finalize prompt file using the role of an AI agent to polish the prompt for the end user.
+  profiles: [daily-dev, full-stack, minimal]
+- name: finnish-humanizer
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/finnish-humanizer/SKILL.md
+  description: Detect and remove AI-generated markers from Finnish text, making it sound like a native Finnish speaker wrote
+    it.
+  profiles: [daily-dev, full-stack, minimal]
+- name: first-ask
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/first-ask/SKILL.md
+  description: 'Interactive, input-tool powered, task refinement workflow: interrogates scope, deliverables, constraints before
+    carrying out the task; Requires the Joyride extension.'
+  profiles: [daily-dev, full-stack, minimal]
+- name: fluentui-blazor
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/fluentui-blazor/SKILL.md
+  description: Guide for using the Microsoft Fluent UI Blazor component library (Microsoft.
+  profiles: [daily-dev, full-stack, minimal]
+- name: folder-structure-blueprint-generator
+  type: skill
+  category: documentation
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/folder-structure-blueprint-generator/SKILL.md
+  description: Comprehensive technology-agnostic prompt for analyzing and documenting project folder structures.
+  profiles: [daily-dev, full-stack, minimal]
+- name: game-engine
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/game-engine/SKILL.md
+  description: Expert skill for building web-based game engines and games using HTML5, Canvas, WebGL, and JavaScript.
+  profiles: [daily-dev, full-stack, minimal]
+- name: gen-specs-as-issues
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/gen-specs-as-issues/SKILL.md
+  description: This workflow guides you through a systematic approach to identify missing features, prioritize them, and create
+    detailed specifications for implementation.
+  profiles: [daily-dev, full-stack, minimal]
+- name: generate-custom-instructions-from-codebase
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/generate-custom-instructions-from-codebase/SKILL.md
+  description: Migration and code evolution instructions generator for GitHub Copilot.
+  profiles: [daily-dev, full-stack, minimal]
+- name: gh-cli
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/gh-cli/SKILL.md
+  description: GitHub CLI (gh) comprehensive reference for repositories, issues, pull requests, Actions, projects, releases,
+    gists, codespaces, organizations, extensions, and all GitHub operations from the command line.
+  profiles: [daily-dev, full-stack, minimal]
+- name: git-commit
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/git-commit/SKILL.md
+  description: Execute git commit with conventional commit message analysis, intelligent staging, and message generation.
+  profiles: [daily-dev, full-stack, minimal]
+- name: git-flow-branch-creator
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/git-flow-branch-creator/SKILL.md
+  description: Intelligent Git Flow branch creator that analyzes git status/diff and creates appropriate branches following
+    the nvie Git Flow branching model.
+  profiles: [daily-dev, full-stack, minimal]
+- name: github-copilot-starter
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/github-copilot-starter/SKILL.md
+  description: Set up complete GitHub Copilot configuration for a new project based on technology stack
+  profiles: [daily-dev, full-stack, minimal]
+- name: github-issues
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/github-issues/SKILL.md
+  description: Create, update, and manage GitHub issues using MCP tools.
+  profiles: [daily-dev, full-stack, minimal]
+- name: go-mcp-server-generator
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/go-mcp-server-generator/SKILL.md
+  description: Generate a complete Go MCP server project with proper structure, dependencies, and implementation using the
+    official github.com/modelcontextprotocol/go-sdk.
+  profiles: [daily-dev, full-stack, minimal]
+- name: image-manipulation-image-magick
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/image-manipulation-image-magick/SKILL.md
+  description: Process and manipulate images using ImageMagick.
+  profiles: [daily-dev, full-stack, minimal]
+- name: java-add-graalvm-native-image-support
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/java-add-graalvm-native-image-support/SKILL.md
+  description: GraalVM Native Image expert that adds native image support to Java applications, builds the project, analyzes
+    build errors, applies fixes, and iterates until successful compilation using Oracle best practices.
+  profiles: [daily-dev, full-stack, minimal]
+- name: java-docs
+  type: skill
+  category: documentation
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/java-docs/SKILL.md
+  description: Ensure that Java types are documented with Javadoc comments and follow best practices for documentation.
+  profiles: [daily-dev, full-stack, minimal]
+- name: java-junit
+  type: skill
+  category: testing
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/java-junit/SKILL.md
+  description: Get best practices for JUnit 5 unit testing, including data-driven tests
+  profiles: [daily-dev, full-stack, minimal]
+- name: java-mcp-server-generator
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/java-mcp-server-generator/SKILL.md
+  description: Generate a complete Model Context Protocol server project in Java using the official MCP Java SDK with reactive
+    streams and optional Spring Boot integration.
+  profiles: [daily-dev, full-stack, minimal]
+- name: java-refactoring-extract-method
+  type: skill
+  category: code-quality
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/java-refactoring-extract-method/SKILL.md
+  description: Refactoring using Extract Methods in Java Language
+  profiles: [daily-dev, full-stack, minimal]
+- name: java-refactoring-remove-parameter
+  type: skill
+  category: code-quality
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/java-refactoring-remove-parameter/SKILL.md
+  description: Refactoring using Remove Parameter in Java Language
+  profiles: [daily-dev, full-stack, minimal]
+- name: java-springboot
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/java-springboot/SKILL.md
+  description: Get best practices for developing applications with Spring Boot.
+  profiles: [daily-dev, full-stack, minimal]
+- name: javascript-typescript-jest
+  type: skill
+  category: testing
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/javascript-typescript-jest/SKILL.md
+  description: Best practices for writing JavaScript/TypeScript tests using Jest, including mocking strategies, test structure,
+    and common patterns.
+  profiles: [daily-dev, full-stack, minimal]
+- name: kotlin-mcp-server-generator
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/kotlin-mcp-server-generator/SKILL.md
+  description: Generate a complete Kotlin MCP server project with proper structure, dependencies, and implementation using
+    the official io.modelcontextprotocol:kotlin-sdk library.
+  profiles: [daily-dev, full-stack, minimal]
+- name: kotlin-springboot
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/kotlin-springboot/SKILL.md
+  description: Get best practices for developing applications with Spring Boot and Kotlin.
+  profiles: [daily-dev, full-stack, minimal]
+- name: legacy-circuit-mockups
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/legacy-circuit-mockups/SKILL.md
+  description: Generate breadboard circuit mockups and visual diagrams using HTML5 Canvas drawing techniques.
+  profiles: [daily-dev, full-stack, minimal]
+- name: make-repo-contribution
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/make-repo-contribution/SKILL.md
+  description: All changes to code must follow the guidance documented in the repository.
+  profiles: [daily-dev, full-stack, minimal]
+- name: make-skill-template
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/make-skill-template/SKILL.md
+  description: Create new Agent Skills for GitHub Copilot from prompts or by duplicating this template.
+  profiles: [daily-dev, full-stack, minimal]
+- name: markdown-to-html
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/markdown-to-html/SKILL.md
+  description: Convert Markdown files to HTML similar to `marked.
+  profiles: [daily-dev, full-stack, minimal]
+- name: mcp-cli
+  type: skill
+  category: ai-tooling
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/mcp-cli/SKILL.md
+  description: Interface for MCP (Model Context Protocol) servers via CLI.
+  profiles: [daily-dev, full-stack, minimal]
+- name: mcp-configure
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/mcp-configure/SKILL.md
+  description: Configure an MCP server for GitHub Copilot with your Dataverse environment.
+  profiles: [daily-dev, full-stack, minimal]
+- name: mcp-copilot-studio-server-generator
+  type: skill
+  category: ai-tooling
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/mcp-copilot-studio-server-generator/SKILL.md
+  description: Generate a complete MCP server implementation optimized for Copilot Studio integration with proper schema constraints
+    and streamable HTTP support
+  profiles: [daily-dev, full-stack, minimal]
+- name: mcp-create-adaptive-cards
+  type: skill
+  category: ai-tooling
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/mcp-create-adaptive-cards/SKILL.md
+  description: Skill converted from mcp-create-adaptive-cards.prompt.md
+  profiles: [daily-dev, full-stack, minimal]
+- name: mcp-create-declarative-agent
+  type: skill
+  category: ai-tooling
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/mcp-create-declarative-agent/SKILL.md
+  description: Skill converted from mcp-create-declarative-agent.prompt.md
+  profiles: [daily-dev, full-stack, minimal]
+- name: mcp-deploy-manage-agents
+  type: skill
+  category: ai-tooling
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/mcp-deploy-manage-agents/SKILL.md
+  description: Skill converted from mcp-deploy-manage-agents.prompt.md
+  profiles: [daily-dev, full-stack, minimal]
+- name: meeting-minutes
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/meeting-minutes/SKILL.md
+  description: Generate concise, actionable meeting minutes for internal meetings. Includes metadata, attendees, agenda, decisions,
+    action items (owner + due date), and follow-up steps.
+  profiles: [daily-dev, full-stack, minimal]
+- name: memory-merger
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/memory-merger/SKILL.md
+  description: 'Merges mature lessons from a domain memory file into its instruction file. Syntax: `/memory-merger >domain
+    [scope]` where scope is `global` (default), `user`, `workspace`, or `ws`.'
+  profiles: [daily-dev, full-stack, minimal]
+- name: microsoft-code-reference
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/microsoft-code-reference/SKILL.md
+  description: Look up Microsoft API references, find working code samples, and verify SDK code is correct.
+  profiles: [daily-dev, full-stack, minimal]
+- name: microsoft-docs
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/microsoft-docs/SKILL.md
+  description: Query official Microsoft documentation to find concepts, tutorials, and code examples across Azure, .
+  profiles: [daily-dev, full-stack, minimal]
+- name: microsoft-skill-creator
+  type: skill
+  category: ai-tooling
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/microsoft-skill-creator/SKILL.md
+  description: Create agent skills for Microsoft technologies using Learn MCP tools.
+  profiles: [daily-dev, full-stack, minimal]
+- name: mkdocs-translations
+  type: skill
+  category: documentation
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/mkdocs-translations/SKILL.md
+  description: Generate a language translation for a mkdocs documentation stack.
+  profiles: [daily-dev, full-stack, minimal]
+- name: model-recommendation
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/model-recommendation/SKILL.md
+  description: Analyze chatmode or prompt files and recommend optimal AI models based on task complexity, required capabilities,
+    and cost-efficiency
+  profiles: [daily-dev, full-stack, minimal]
+- name: multi-stage-dockerfile
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/multi-stage-dockerfile/SKILL.md
+  description: Create optimized multi-stage Dockerfiles for any language or framework
+  profiles: [daily-dev, full-stack, minimal]
+- name: my-issues
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/my-issues/SKILL.md
+  description: List my issues in the current repository
+  profiles: [daily-dev, full-stack, minimal]
+- name: my-pull-requests
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/my-pull-requests/SKILL.md
+  description: List my pull requests in the current repository
+  profiles: [daily-dev, full-stack, minimal]
+- name: nano-banana-pro-openrouter
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/nano-banana-pro-openrouter/SKILL.md
+  description: Generate or edit images via OpenRouter with the Gemini 3 Pro Image model. Use for prompt-only image generation,
+    image edits, and multi-image compositing; supports 1K/2K/4K output.
+  profiles: [daily-dev, full-stack, minimal]
+- name: next-intl-add-language
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/next-intl-add-language/SKILL.md
+  description: Add new language to a Next.js + next-intl application
+  profiles: [daily-dev, full-stack, minimal]
+- name: nuget-manager
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/nuget-manager/SKILL.md
+  description: Manage NuGet packages in .NET projects/solutions.
+  profiles: [daily-dev, full-stack, minimal]
+- name: openapi-to-application-code
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/openapi-to-application-code/SKILL.md
+  description: Generate a complete, production-ready application from an OpenAPI specification
+  profiles: [daily-dev, full-stack, minimal]
+- name: pdftk-server
+  type: skill
+  category: documentation
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/pdftk-server/SKILL.md
+  description: Skill for using the command-line tool pdftk (PDFtk Server) for working with PDF files.
+  profiles: [daily-dev, full-stack, minimal]
+- name: penpot-uiux-design
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/penpot-uiux-design/SKILL.md
+  description: Comprehensive guide for creating professional UI/UX designs in Penpot using MCP tools.
+  profiles: [daily-dev, full-stack, minimal]
+- name: php-mcp-server-generator
+  type: skill
+  category: testing
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/php-mcp-server-generator/SKILL.md
+  description: Generate a complete PHP Model Context Protocol server project with tools, resources, prompts, and tests using
+    the official PHP SDK
+  profiles: [daily-dev, full-stack, minimal]
+- name: plantuml-ascii
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/plantuml-ascii/SKILL.md
+  description: Generate ASCII art diagrams using PlantUML text mode.
+  profiles: [daily-dev, full-stack, minimal]
+- name: playwright-automation-fill-in-form
+  type: skill
+  category: ai-tooling
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/playwright-automation-fill-in-form/SKILL.md
+  description: Automate filling in a form using Playwright MCP
+  profiles: [daily-dev, full-stack, minimal]
+- name: playwright-explore-website
+  type: skill
+  category: testing
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/playwright-explore-website/SKILL.md
+  description: Website exploration for testing using Playwright MCP
+  profiles: [daily-dev, full-stack, minimal]
+- name: playwright-generate-test
+  type: skill
+  category: testing
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/playwright-generate-test/SKILL.md
+  description: Generate a Playwright test based on a scenario using Playwright MCP
+  profiles: [daily-dev, full-stack, minimal]
+- name: polyglot-test-agent
+  type: skill
+  category: testing
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/polyglot-test-agent/SKILL.md
+  description: Generates comprehensive, workable unit tests for any programming language using a multi-agent pipeline.
+  profiles: [daily-dev, full-stack, minimal]
+- name: postgresql-code-review
+  type: skill
+  category: code-quality
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/postgresql-code-review/SKILL.md
+  description: PostgreSQL-specific code review assistant focusing on PostgreSQL best practices, anti-patterns, and unique
+    quality standards.
+  profiles: [daily-dev, full-stack, minimal]
+- name: postgresql-optimization
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/postgresql-optimization/SKILL.md
+  description: PostgreSQL-specific development assistant focusing on unique PostgreSQL features, advanced data types, and
+    PostgreSQL-exclusive capabilities.
+  profiles: [daily-dev, full-stack, minimal]
+- name: power-apps-code-app-scaffold
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/power-apps-code-app-scaffold/SKILL.md
+  description: Scaffold a complete Power Apps Code App project with PAC CLI setup, SDK integration, and connector configuration
+  profiles: [daily-dev, full-stack, minimal]
+- name: power-bi-dax-optimization
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/power-bi-dax-optimization/SKILL.md
+  description: Comprehensive Power BI DAX formula optimization prompt for improving performance, readability, and maintainability
+    of DAX calculations.
+  profiles: [daily-dev, full-stack, minimal]
+- name: power-bi-model-design-review
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/power-bi-model-design-review/SKILL.md
+  description: Comprehensive Power BI data model design review prompt for evaluating model architecture, relationships, and
+    optimization opportunities.
+  profiles: [daily-dev, full-stack, minimal]
+- name: power-bi-performance-troubleshooting
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/power-bi-performance-troubleshooting/SKILL.md
+  description: Systematic Power BI performance troubleshooting prompt for identifying, diagnosing, and resolving performance
+    issues in Power BI models, reports, and queries.
+  profiles: [daily-dev, full-stack, minimal]
+- name: power-bi-report-design-consultation
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/power-bi-report-design-consultation/SKILL.md
+  description: Power BI report visualization design prompt for creating effective, user-friendly, and accessible reports with
+    optimal chart selection and layout design.
+  profiles: [daily-dev, full-stack, minimal]
+- name: power-platform-mcp-connector-suite
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/power-platform-mcp-connector-suite/SKILL.md
+  description: Generate complete Power Platform custom connector with MCP integration for Copilot Studio - includes schema
+    generation, troubleshooting, and validation
+  profiles: [daily-dev, full-stack, minimal]
+- name: powerbi-modeling
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/powerbi-modeling/SKILL.md
+  description: Power BI semantic modeling assistant for building optimized data models.
+  profiles: [daily-dev, full-stack, minimal]
+- name: prd
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/prd/SKILL.md
+  description: Generate high-quality Product Requirements Documents (PRDs) for software systems and AI-powered features. Includes
+    executive summaries, user stories, technical specifications, and risk analysis.
+  profiles: [daily-dev, full-stack, minimal]
+- name: project-workflow-analysis-blueprint-generator
+  type: skill
+  category: documentation
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/project-workflow-analysis-blueprint-generator/SKILL.md
+  description: Comprehensive technology-agnostic prompt generator for documenting end-to-end application workflows.
+  profiles: [daily-dev, full-stack, minimal]
+- name: prompt-builder
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/prompt-builder/SKILL.md
+  description: Guide users through creating high-quality GitHub Copilot prompts with proper structure, tools, and best practices.
+  profiles: [daily-dev, full-stack, minimal]
+- name: pytest-coverage
+  type: skill
+  category: testing
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/pytest-coverage/SKILL.md
+  description: Run pytest tests with coverage, discover lines missing coverage, and increase coverage to 100%.
+  profiles: [daily-dev, full-stack, minimal]
+- name: python-mcp-server-generator
+  type: skill
+  category: ai-tooling
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/python-mcp-server-generator/SKILL.md
+  description: Generate a complete MCP server project in Python with tools, resources, and proper configuration
+  profiles: [daily-dev, full-stack, minimal]
+- name: quasi-coder
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/quasi-coder/SKILL.md
+  description: Expert 10x engineer skill for interpreting and implementing code from shorthand, quasi-code, and natural language
+    descriptions.
+  profiles: [daily-dev, full-stack, minimal]
+- name: readme-blueprint-generator
+  type: skill
+  category: documentation
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/readme-blueprint-generator/SKILL.md
+  description: Intelligent README.md generation prompt that analyzes project documentation structure and creates comprehensive
+    repository documentation.
+  profiles: [daily-dev, full-stack, minimal]
+- name: refactor
+  type: skill
+  category: code-quality
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/refactor/SKILL.md
+  description: Surgical code refactoring to improve maintainability without changing behavior.
+  profiles: [daily-dev, full-stack, minimal]
+- name: refactor-method-complexity-reduce
+  type: skill
+  category: code-quality
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/refactor-method-complexity-reduce/SKILL.md
+  description: Refactor given method `${input:methodName}` to reduce its cognitive complexity to `${input:complexityThreshold}`
+    or below, by extracting helper methods.
+  profiles: [daily-dev, full-stack, minimal]
+- name: refactor-plan
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/refactor-plan/SKILL.md
+  description: Plan a multi-file refactor with proper sequencing and rollback steps
+  profiles: [daily-dev, full-stack, minimal]
+- name: remember
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/remember/SKILL.md
+  description: Transforms lessons learned into domain-organized memory instructions (global or workspace).
+  profiles: [daily-dev, full-stack, minimal]
+- name: remember-interactive-programming
+  type: skill
+  category: ai-tooling
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/remember-interactive-programming/SKILL.md
+  description: A micro-prompt that reminds the agent that it is an interactive programmer.
+  profiles: [daily-dev, full-stack, minimal]
+- name: repo-story-time
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/repo-story-time/SKILL.md
+  description: Generate a comprehensive repository summary and narrative story from commit history
+  profiles: [daily-dev, full-stack, minimal]
+- name: review-and-refactor
+  type: skill
+  category: code-quality
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/review-and-refactor/SKILL.md
+  description: Review and refactor code in your project according to defined instructions
+  profiles: [daily-dev, full-stack, minimal]
+- name: ruby-mcp-server-generator
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/ruby-mcp-server-generator/SKILL.md
+  description: Generate a complete Model Context Protocol server project in Ruby using the official MCP Ruby SDK gem.
+  profiles: [daily-dev, full-stack, minimal]
+- name: rust-mcp-server-generator
+  type: skill
+  category: testing
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/rust-mcp-server-generator/SKILL.md
+  description: Generate a complete Rust Model Context Protocol server project with tools, prompts, resources, and tests using
+    the official rmcp SDK
+  profiles: [daily-dev, full-stack, minimal]
+- name: scoutqa-test
+  type: skill
+  category: testing
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/scoutqa-test/SKILL.md
+  description: This skill should be used when the user asks to "test this website", "run exploratory testing", "check for
+    accessibility issues", "verify the login flow works", "find bugs on this page", or requests automated QA testing.
+  profiles: [daily-dev, full-stack, minimal]
+- name: shuffle-json-data
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/shuffle-json-data/SKILL.md
+  description: Shuffle repetitive JSON objects safely by validating schema consistency before randomising entries.
+  profiles: [daily-dev, full-stack, minimal]
+- name: snowflake-semanticview
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/snowflake-semanticview/SKILL.md
+  description: Create, alter, and validate Snowflake semantic views using Snowflake CLI (snow).
+  profiles: [daily-dev, full-stack, minimal]
+- name: sponsor-finder
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/sponsor-finder/SKILL.md
+  description: Find which of a GitHub repository's dependencies are sponsorable via GitHub Sponsors.
+  profiles: [daily-dev, full-stack, minimal]
+- name: sql-code-review
+  type: skill
+  category: code-quality
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/sql-code-review/SKILL.md
+  description: Universal SQL code review assistant that performs comprehensive security, maintainability, and code quality
+    analysis across all SQL databases (MySQL, PostgreSQL, SQL Server, Oracle).
+  profiles: [daily-dev, full-stack, minimal]
+- name: sql-optimization
+  type: skill
+  category: ai-tooling
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/sql-optimization/SKILL.md
+  description: Universal SQL performance optimization assistant for comprehensive query tuning, indexing strategies, and database
+    performance analysis across all SQL databases (MySQL, PostgreSQL, SQL Server, Oracle).
+  profiles: [daily-dev, full-stack, minimal]
+- name: structured-autonomy-generate
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/structured-autonomy-generate/SKILL.md
+  description: Structured Autonomy Implementation Generator Prompt
+  profiles: [daily-dev, full-stack, minimal]
+- name: structured-autonomy-implement
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/structured-autonomy-implement/SKILL.md
+  description: Structured Autonomy Implementation Prompt
+  profiles: [daily-dev, full-stack, minimal]
+- name: structured-autonomy-plan
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/structured-autonomy-plan/SKILL.md
+  description: Structured Autonomy Planning Prompt
+  profiles: [daily-dev, full-stack, minimal]
+- name: suggest-awesome-github-copilot-agents
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/suggest-awesome-github-copilot-agents/SKILL.md
+  description: Suggest relevant GitHub Copilot Custom Agents files from the awesome-copilot repository based on current repository
+    context and chat history, avoiding duplicates with existing custom agents in this repository, and identifying outdated
+    agents that need updates.
+  profiles: [daily-dev, full-stack, minimal]
+- name: suggest-awesome-github-copilot-instructions
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/suggest-awesome-github-copilot-instructions/SKILL.md
+  description: Suggest relevant GitHub Copilot instruction files from the awesome-copilot repository based on current repository
+    context and chat history, avoiding duplicates with existing instructions in this repository, and identifying outdated
+    instructions that need updates.
+  profiles: [daily-dev, full-stack, minimal]
+- name: suggest-awesome-github-copilot-prompts
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/suggest-awesome-github-copilot-prompts/SKILL.md
+  description: Suggest relevant GitHub Copilot prompt files from the awesome-copilot repository based on current repository
+    context and chat history, avoiding duplicates with existing prompts in this repository, and identifying outdated prompts
+    that need updates.
+  profiles: [daily-dev, full-stack, minimal]
+- name: suggest-awesome-github-copilot-skills
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/suggest-awesome-github-copilot-skills/SKILL.md
+  description: Suggest relevant GitHub Copilot skills from the awesome-copilot repository based on current repository context
+    and chat history, avoiding duplicates with existing skills in this repository, and identifying outdated skills that need
+    updates.
+  profiles: [daily-dev, full-stack, minimal]
+- name: swift-mcp-server-generator
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/swift-mcp-server-generator/SKILL.md
+  description: Generate a complete Model Context Protocol server project in Swift using the official MCP Swift SDK package.
+  profiles: [daily-dev, full-stack, minimal]
+- name: technology-stack-blueprint-generator
+  type: skill
+  category: documentation
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/technology-stack-blueprint-generator/SKILL.md
+  description: Comprehensive technology stack blueprint generator that analyzes codebases to create detailed architectural
+    documentation.
+  profiles: [daily-dev, full-stack, minimal]
+- name: terraform-azurerm-set-diff-analyzer
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/terraform-azurerm-set-diff-analyzer/SKILL.md
+  description: Analyze Terraform plan JSON output for AzureRM Provider to distinguish between false-positive diffs (order-only
+    changes in Set-type attributes) and actual resource changes.
+  profiles: [daily-dev, full-stack, minimal]
+- name: tldr-prompt
+  type: skill
+  category: ai-tooling
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/tldr-prompt/SKILL.md
+  description: Create tldr summaries for GitHub Copilot files (prompts, agents, instructions, collections), MCP servers, or
+    documentation from URLs and queries.
+  profiles: [daily-dev, full-stack, minimal]
+- name: transloadit-media-processing
+  type: skill
+  category: documentation
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/transloadit-media-processing/SKILL.md
+  description: Process media files (video, audio, images, documents) using Transloadit.
+  profiles: [daily-dev, full-stack, minimal]
+- name: typescript-mcp-server-generator
+  type: skill
+  category: ai-tooling
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/typescript-mcp-server-generator/SKILL.md
+  description: Generate a complete MCP server project in TypeScript with tools, resources, and proper configuration
+  profiles: [daily-dev, full-stack, minimal]
+- name: typespec-api-operations
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/typespec-api-operations/SKILL.md
+  description: Add GET, POST, PATCH, and DELETE operations to a TypeSpec API plugin with proper routing, parameters, and adaptive
+    cards
+  profiles: [daily-dev, full-stack, minimal]
+- name: typespec-create-agent
+  type: skill
+  category: ai-tooling
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/typespec-create-agent/SKILL.md
+  description: Generate a complete TypeSpec declarative agent with instructions, capabilities, and conversation starters for
+    Microsoft 365 Copilot
+  profiles: [daily-dev, full-stack, minimal]
+- name: typespec-create-api-plugin
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/typespec-create-api-plugin/SKILL.md
+  description: Generate a TypeSpec API plugin with REST operations, authentication, and Adaptive Cards for Microsoft 365 Copilot
+  profiles: [daily-dev, full-stack, minimal]
+- name: update-avm-modules-in-bicep
+  type: skill
+  category: testing
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/update-avm-modules-in-bicep/SKILL.md
+  description: Update Azure Verified Modules (AVM) to latest versions in Bicep files.
+  profiles: [daily-dev, full-stack, minimal]
+- name: update-implementation-plan
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/update-implementation-plan/SKILL.md
+  description: Update an existing implementation plan file with new or update requirements to provide new features, refactoring
+    existing code or upgrading packages, design, architecture or infrastructure.
+  profiles: [daily-dev, full-stack, minimal]
+- name: update-llms
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/update-llms/SKILL.md
+  description: Update the llms.txt file in the root folder to reflect changes in documentation or specifications following
+    the llms.txt specification at https://llmstxt.org/
+  profiles: [daily-dev, full-stack, minimal]
+- name: update-markdown-file-index
+  type: skill
+  category: devops
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/update-markdown-file-index/SKILL.md
+  description: Update a markdown file section with an index/table of files from a specified folder.
+  profiles: [daily-dev, full-stack, minimal]
+- name: update-oo-component-documentation
+  type: skill
+  category: documentation
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/update-oo-component-documentation/SKILL.md
+  description: Update existing object-oriented component documentation following industry best practices and architectural
+    documentation standards.
+  profiles: [daily-dev, full-stack, minimal]
+- name: update-specification
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/update-specification/SKILL.md
+  description: Update an existing specification file for the solution, optimized for Generative AI consumption based on new
+    requirements or updates to any existing code.
+  profiles: [daily-dev, full-stack, minimal]
+- name: vscode-ext-commands
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/vscode-ext-commands/SKILL.md
+  description: Guidelines for contributing commands in VS Code extensions.
+  profiles: [daily-dev, full-stack, minimal]
+- name: vscode-ext-localization
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/vscode-ext-localization/SKILL.md
+  description: Guidelines for proper localization of VS Code extensions, following VS Code extension development guidelines,
+    libraries and good practices
+  profiles: [daily-dev, full-stack, minimal]
+- name: web-design-reviewer
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/web-design-reviewer/SKILL.md
+  description: This skill enables visual inspection of websites running locally or remotely to identify and fix design issues.
+  profiles: [daily-dev, full-stack, minimal]
+- name: webapp-testing
+  type: skill
+  category: testing
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/webapp-testing/SKILL.md
+  description: Toolkit for interacting with and testing local web applications using Playwright.
+  profiles: [daily-dev, full-stack, minimal]
+- name: what-context-needed
+  type: skill
+  category: workflow
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/what-context-needed/SKILL.md
+  description: Ask Copilot what files it needs to see before answering a question
+  profiles: [daily-dev, full-stack, minimal]
+- name: winapp-cli
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/winapp-cli/SKILL.md
+  description: Windows App Development CLI (winapp) for building, packaging, and deploying Windows applications.
+  profiles: [daily-dev, full-stack, minimal]
+- name: workiq-copilot
+  type: skill
+  category: frontend
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/workiq-copilot/SKILL.md
+  description: Guides the Copilot CLI on how to use the WorkIQ CLI/MCP server to query Microsoft 365 Copilot data (emails,
+    meetings, docs, Teams, people) for live context, summaries, and recommendations.
+  profiles: [daily-dev, full-stack, minimal]
+- name: write-coding-standards-from-file
+  type: skill
+  category: documentation
+  vendor: awesome-copilot
+  path: vendor/awesome-copilot/skills/write-coding-standards-from-file/SKILL.md
+  description: Write a coding standards document for a project using the coding styles from the file(s) and/or folder(s) passed
+    as arguments in the prompt.
   profiles: [daily-dev, full-stack, minimal]

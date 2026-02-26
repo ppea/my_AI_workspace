@@ -72,15 +72,20 @@ ensure_omo_model_config() {
 
 ensure_user_opencode_json() {
   local target="${USER_OC_DIR}/opencode.json"
+  local desired='{\n  "plugin": [\n    "oh-my-opencode"\n  ]\n}'
   mkdir -p "${USER_OC_DIR}"
 
   # Write a deterministic user-level opencode.json matching the project config.
   # Use "oh-my-opencode" (not @latest) for consistency with .opencode/opencode.json.
   if [ ! -f "$target" ]; then
-    printf '{\n  "plugin": [\n    "oh-my-opencode"\n  ]\n}\n' > "$target"
+    printf '%b\n' "$desired" > "$target"
     log "Wrote user-level opencode.json at ${target}"
+  elif grep -q '"oh-my-opencode@latest"' "$target" 2>/dev/null; then
+    # Fix divergence left by OmO installer's @latest suffix
+    sed -i '' 's/"oh-my-opencode@latest"/"oh-my-opencode"/' "$target"
+    log "Fixed @latest divergence in ${target}"
   else
-    log "User-level opencode.json already exists at ${target} — keeping existing"
+    log "User-level opencode.json already correct at ${target}"
   fi
 }
 
@@ -124,6 +129,29 @@ install_anthropic_skills() {
   done
 
   log "Linked Anthropic skills into ${USER_OC_SKILLS_DIR}"
+}
+
+install_copilot_skills() {
+  mkdir -p "${USER_OC_SKILLS_DIR}"
+
+  local src_root="${ROOT_DIR}/vendor/awesome-copilot/skills"
+  if [ ! -d "$src_root" ]; then
+    log "Skipping Copilot skills (vendor/awesome-copilot not present)"
+    return 0
+  fi
+
+  local count=0
+  local skill
+  for skill in "${src_root}"/*; do
+    [ -d "$skill" ] || continue
+    [ -f "${skill}/SKILL.md" ] || continue
+    local name
+    name="$(basename "$skill")"
+    link_dir "$skill" "${USER_OC_SKILLS_DIR}/copilot-${name}"
+    count=$((count + 1))
+  done
+
+  log "Linked ${count} Copilot skills into ${USER_OC_SKILLS_DIR}"
 }
 
 install_openspec() {
@@ -204,6 +232,7 @@ main() {
   ensure_user_opencode_json
   install_superpowers_links
   install_anthropic_skills
+  install_copilot_skills
   install_custom_skills
   install_openspec
   copy_profile

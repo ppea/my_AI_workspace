@@ -10,3 +10,6 @@
 [submodule "vendor/openspec"]
 	path = vendor/openspec
 	url = https://github.com/Fission-AI/OpenSpec.git
+[submodule "vendor/awesome-copilot"]
+	path = vendor/awesome-copilot
+	url = https://github.com/github/awesome-copilot.git
