@@ -1,0 +1,20 @@
+# macOS
+.DS_Store
+
+# Node
+node_modules/
+
+# Editor
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Environment / secrets
+.env
+.env.*
+credentials.json
+
+# OpenCode session data (not project config)
+.opencode/sessions/

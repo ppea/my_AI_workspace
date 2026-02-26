@@ -1,0 +1,29 @@
+{
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
+
+  // Fast, low-resource profile for quick edits.
+  "background_task": {
+    "defaultConcurrency": 1
+  },
+
+  "disabled_mcps": [
+    "websearch",
+    "grep_app"
+  ],
+
+  "disabled_agents": [
+    "oracle",
+    "multimodal-looker",
+    "metis",
+    "momus"
+  ],
+
+  "disabled_skills": [
+    "playwright",
+    "frontend-ui-ux"
+  ],
+
+  "disabled_categories": [
+    "ultrabrain"
+  ]
+}
