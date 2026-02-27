@@ -1,0 +1,22 @@
+# Runtime data
+data/
+config/secrets.yaml
+
+# Obsidian
+knowledge/.obsidian/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

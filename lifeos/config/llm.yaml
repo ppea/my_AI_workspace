@@ -1,0 +1,16 @@
+llm:
+  primary:
+    provider: openai
+    model: gpt-4o
+  fallback:
+    provider: anthropic
+    model: claude-sonnet-4-20250514
+  emergency:
+    provider: openai
+    model: gpt-4o-mini
+  routing_model:
+    provider: openai
+    model: gpt-4o-mini
+  memory_model:
+    provider: openai
+    model: gpt-4o-mini

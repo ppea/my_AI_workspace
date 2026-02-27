@@ -1,0 +1,18 @@
+advisors:
+  health:
+    display_name: "Health Management Advisor"
+    description: "Medical records, fitness tracking, nutrition, medication reminders"
+    prompt_file: src/advisors/health/prompts.py
+    tools: [search_medical_records, log_health_metric, schedule_reminder]
+    knowledge_dirs: [knowledge/areas/health/]
+    llm: {provider: openai, model: gpt-4o}
+    tags: [health, medical, fitness, nutrition]
+
+  schedule:
+    display_name: "Schedule & Productivity Advisor"
+    description: "Calendar management, task prioritization, time blocking, reminders"
+    prompt_file: src/advisors/schedule/prompts.py
+    tools: [google_calendar_read, google_calendar_write, todoist_read, todoist_write]
+    knowledge_dirs: [knowledge/areas/schedule/]
+    llm: {provider: openai, model: gpt-4o-mini}
+    tags: [schedule, calendar, productivity, tasks]
