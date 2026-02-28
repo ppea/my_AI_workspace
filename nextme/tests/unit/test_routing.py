@@ -1,5 +1,5 @@
 # nextme/tests/unit/test_routing.py
-from src.agents.chief_of_staff import classify_intent, RoutingDecision
+from src.agents.chief_of_staff import classify_intent
 
 
 class TestIntentClassification:

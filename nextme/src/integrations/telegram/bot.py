@@ -121,3 +121,28 @@ class NextMeTelegramBot:
         """Start the bot (blocking)."""
         logger.info("telegram.starting")
         self.app.run_polling()
+
+
+def create_chief() -> ChiefOfStaff:
+    """Create a ChiefOfStaff wired with all 9 advisors."""
+    from src.advisors.health.advisor import HealthAdvisor
+    from src.advisors.schedule.advisor import ScheduleAdvisor
+    from src.advisors.finance.advisor import FinanceAdvisor
+    from src.advisors.career.advisor import CareerAdvisor
+    from src.advisors.legal.advisor import LegalAdvisor
+    from src.advisors.family.advisor import FamilyAdvisor
+    from src.advisors.mental_health.advisor import MentalHealthAdvisor
+    from src.advisors.learning.advisor import LearningAdvisor
+    from src.advisors.entrepreneurship.advisor import EntrepreneurshipAdvisor
+
+    chief = ChiefOfStaff()
+    chief.register_advisor(HealthAdvisor())
+    chief.register_advisor(ScheduleAdvisor())
+    chief.register_advisor(FinanceAdvisor())
+    chief.register_advisor(CareerAdvisor())
+    chief.register_advisor(LegalAdvisor())
+    chief.register_advisor(FamilyAdvisor())
+    chief.register_advisor(MentalHealthAdvisor())
+    chief.register_advisor(LearningAdvisor())
+    chief.register_advisor(EntrepreneurshipAdvisor())
+    return chief

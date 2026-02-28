@@ -228,16 +228,25 @@ async def call_tool(name: str, arguments: dict[str, Any]) -> list[TextContent]:
 def _load_advisor_prompts() -> dict[str, str]:
     """Load all advisor prompts."""
     prompts: dict[str, str] = {}
-    try:
-        from src.advisors.health.prompts import SYSTEM_PROMPT as health_prompt
-        prompts["health"] = f"## You are now: Health Management Advisor\n\n{health_prompt}"
-    except ImportError:
-        pass
-    try:
-        from src.advisors.schedule.prompts import SYSTEM_PROMPT as schedule_prompt
-        prompts["schedule"] = f"## You are now: Schedule & Productivity Advisor\n\n{schedule_prompt}"
-    except ImportError:
-        pass
+    advisor_map = {
+        "health": ("src.advisors.health.prompts", "Health Management Advisor"),
+        "schedule": ("src.advisors.schedule.prompts", "Schedule & Productivity Advisor"),
+        "finance": ("src.advisors.finance.prompts", "Finance & Investment Advisor"),
+        "career": ("src.advisors.career.prompts", "Career Development Advisor"),
+        "legal": ("src.advisors.legal.prompts", "Legal Guidance Advisor"),
+        "family": ("src.advisors.family.prompts", "Family & Relationships Advisor"),
+        "mental_health": ("src.advisors.mental_health.prompts", "Mental Health & Wellbeing Advisor"),
+        "learning": ("src.advisors.learning.prompts", "Learning & Development Advisor"),
+        "entrepreneurship": ("src.advisors.entrepreneurship.prompts", "Entrepreneurship & Business Advisor"),
+    }
+    for key, (module_path, display_name) in advisor_map.items():
+        try:
+            import importlib
+            module = importlib.import_module(module_path)
+            prompt = getattr(module, "SYSTEM_PROMPT", "")
+            prompts[key] = f"## You are now: {display_name}\n\n{prompt}"
+        except ImportError:
+            pass
     return prompts
 
 
