@@ -1,9 +1,10 @@
-# nextme/src/core/config.py
-from pathlib import Path
-from dataclasses import dataclass, field
-from typing import Any
-import yaml
+from __future__ import annotations
 
+from dataclasses import dataclass, field
+from pathlib import Path
+from typing import Any
+
+import yaml
 
 CONFIG_DIR = Path(__file__).parent.parent.parent / "config"
 
@@ -40,12 +41,45 @@ class AdvisorConfig:
 
 
 @dataclass
+class GoogleCalendarConfig:
+    enabled: bool = False
+    calendar_id: str = "primary"
+    sync_interval_minutes: int = 15
+    oauth_client_secrets_path: str = ""
+    token_path: str = "data/google_token.json"
+
+
+@dataclass
+class TodoistConfig:
+    enabled: bool = False
+    project_prefix: str = "NextMe"
+    sync_interval_minutes: int = 10
+    auto_create_tasks: bool = True
+
+
+@dataclass
+class ObsidianConfig:
+    enabled: bool = True
+    vault_path: str = "knowledge/"
+    watch_mode: str = "polling"
+    poll_interval_seconds: int = 30
+
+
+@dataclass
+class IntegrationsConfig:
+    google_calendar: GoogleCalendarConfig = field(default_factory=GoogleCalendarConfig)
+    todoist: TodoistConfig = field(default_factory=TodoistConfig)
+    obsidian: ObsidianConfig = field(default_factory=ObsidianConfig)
+
+
+@dataclass
 class SecretsConfig:
     openai_api_key: str = ""
     anthropic_api_key: str = ""
     telegram_bot_token: str = ""
     telegram_owner_chat_id: str = ""
     todoist_api_token: str = ""
+    google_calendar_client_secrets_path: str = ""
 
 
 def load_yaml(filename: str) -> dict[str, Any]:
@@ -99,6 +133,37 @@ def load_rag_config() -> RAGConfig:
     )
 
 
+def load_integrations_config() -> IntegrationsConfig:
+    data = load_yaml("integrations.yaml")
+    integrations = data.get("integrations", {})
+
+    google_calendar = integrations.get("google_calendar", {})
+    todoist = integrations.get("todoist", {})
+    obsidian = integrations.get("obsidian", {})
+
+    return IntegrationsConfig(
+        google_calendar=GoogleCalendarConfig(
+            enabled=google_calendar.get("enabled", False),
+            calendar_id=google_calendar.get("calendar_id", "primary"),
+            sync_interval_minutes=google_calendar.get("sync_interval_minutes", 15),
+            oauth_client_secrets_path=google_calendar.get("oauth_client_secrets_path", ""),
+            token_path=google_calendar.get("token_path", "data/google_token.json"),
+        ),
+        todoist=TodoistConfig(
+            enabled=todoist.get("enabled", False),
+            project_prefix=todoist.get("project_prefix", "NextMe"),
+            sync_interval_minutes=todoist.get("sync_interval_minutes", 10),
+            auto_create_tasks=todoist.get("auto_create_tasks", True),
+        ),
+        obsidian=ObsidianConfig(
+            enabled=obsidian.get("enabled", True),
+            vault_path=obsidian.get("vault_path", "knowledge/"),
+            watch_mode=obsidian.get("watch_mode", "polling"),
+            poll_interval_seconds=obsidian.get("poll_interval_seconds", 30),
+        ),
+    )
+
+
 def load_secrets() -> SecretsConfig:
     """Load secrets from secrets.yaml."""
     data = load_yaml("secrets.yaml")
@@ -109,4 +174,5 @@ def load_secrets() -> SecretsConfig:
         telegram_bot_token=secrets.get("telegram_bot_token", ""),
         telegram_owner_chat_id=secrets.get("telegram_owner_chat_id", ""),
         todoist_api_token=secrets.get("todoist_api_token", ""),
+        google_calendar_client_secrets_path=secrets.get("google_calendar_client_secrets_path", ""),
     )

@@ -3,6 +3,8 @@ integrations:
     enabled: false
     calendar_id: primary
     sync_interval_minutes: 15
+    oauth_client_secrets_path: ""
+    token_path: data/google_token.json
   todoist:
     enabled: false
     project_prefix: "NextMe"
