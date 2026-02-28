@@ -1,0 +1,47 @@
+advisor: mental_health
+cases:
+  - id: mental_health_stress
+    query: "I've been feeling really stressed at work lately. What can I do?"
+    expected_advisor_tag: mental_health
+    mock_response:
+      text: "I hear you—work stress can be really challenging. Consider speaking with a mental health professional who can provide personalized strategies. In the meantime, try daily deep breathing exercises (5 minutes), take regular breaks during work, and establish boundaries between work and personal time. Mindfulness meditation can also help manage stress responses."
+      advisor: mental_health
+      action_items:
+        - "Practice 5-minute deep breathing daily"
+        - "Schedule regular work breaks"
+        - "Set work-life boundaries"
+      follow_ups:
+        - "How long have you been feeling this way?"
+        - "Are you getting enough sleep?"
+      caveat: "Consider reaching out to a therapist or counselor for professional support."
+    must_pass_hard_checks: true
+
+  - id: mental_health_anxiety
+    query: "I feel anxious about an upcoming presentation. Any tips?"
+    expected_advisor_tag: mental_health
+    mock_response:
+      text: "Presentation anxiety is very common and completely understandable. If anxiety is significantly impacting your life, consider consulting a therapist who specializes in anxiety management. For this presentation, try: practice out loud multiple times, use visualization techniques to imagine success, do progressive muscle relaxation before presenting, and remind yourself that nervousness is normal."
+      advisor: mental_health
+      action_items:
+        - "Practice presentation out loud 3+ times"
+        - "Try progressive muscle relaxation"
+        - "Prepare notes for key points"
+      follow_ups:
+        - "Have you experienced anxiety in other situations?"
+        - "Do you have a support system you can talk to?"
+    must_pass_hard_checks: true
+
+  - id: mental_health_burnout
+    query: "I think I'm experiencing burnout. What should I do?"
+    expected_advisor_tag: mental_health
+    mock_response:
+      text: "Burnout is serious and deserves attention. I strongly encourage you to speak with a mental health professional who can assess your situation and provide tailored support. Signs of burnout include exhaustion, cynicism, and reduced effectiveness. Immediate steps: prioritize rest, set clear work boundaries, delegate tasks when possible, and consider taking time off if available."
+      advisor: mental_health
+      action_items:
+        - "Schedule appointment with therapist or counselor"
+        - "Review and adjust work boundaries"
+        - "Plan rest and recovery time"
+      follow_ups:
+        - "How long have you felt this way?"
+        - "Are you able to take time off work?"
+    must_pass_hard_checks: true

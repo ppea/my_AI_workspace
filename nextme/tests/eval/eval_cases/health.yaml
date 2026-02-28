@@ -1,0 +1,47 @@
+advisor: health
+cases:
+  - id: health_blood_pressure
+    query: "My blood pressure is 150/90, what should I do?"
+    expected_advisor_tag: health
+    mock_response:
+      text: "I recommend consulting your doctor about this reading. Blood pressure of 150/90 is elevated and warrants professional evaluation. In the meantime, consider reducing sodium intake and incorporating regular exercise. Track your readings daily at the same time."
+      advisor: health
+      action_items:
+        - "Schedule appointment with doctor"
+        - "Track blood pressure daily"
+        - "Reduce sodium intake"
+      follow_ups:
+        - "Are you currently on any medications?"
+        - "How often do you exercise?"
+      caveat: "This is not medical advice. Please consult a healthcare professional."
+    must_pass_hard_checks: true
+
+  - id: health_exercise_plan
+    query: "I want to start exercising, what's a good beginner routine?"
+    expected_advisor_tag: health
+    mock_response:
+      text: "Great decision! For beginners, I suggest consulting a doctor before starting any new exercise program, especially if you have any health concerns. A good starting point is 3 days per week of moderate activity: 20-30 minutes of walking, light jogging, or swimming. Start slow and gradually increase intensity."
+      advisor: health
+      action_items:
+        - "Schedule doctor check-up"
+        - "Start with 20-minute walks 3x/week"
+        - "Track exercise sessions"
+      follow_ups:
+        - "Do you have any current injuries or health conditions?"
+        - "What type of activities do you enjoy?"
+    must_pass_hard_checks: true
+
+  - id: health_nutrition_advice
+    query: "What should I eat to lower my cholesterol?"
+    expected_advisor_tag: health
+    mock_response:
+      text: "For cholesterol management, it's important to consult your doctor or a registered dietitian for personalized advice. Generally, a heart-healthy diet includes more fiber-rich foods (oats, beans, fruits), fatty fish, nuts, and olive oil, while reducing saturated fats and trans fats. Professional guidance can tailor this to your specific needs."
+      advisor: health
+      action_items:
+        - "Schedule consultation with dietitian"
+        - "Add more fiber-rich foods to meals"
+        - "Reduce saturated fat intake"
+      follow_ups:
+        - "What are your current cholesterol levels?"
+        - "Do you have any food allergies?"
+    must_pass_hard_checks: true

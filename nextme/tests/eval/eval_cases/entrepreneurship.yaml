@@ -1,0 +1,52 @@
+advisor: entrepreneurship
+cases:
+  - id: entrepreneurship_validate_idea
+    query: "I have an idea for a SaaS product. How do I validate it before building?"
+    expected_advisor_tag: entrepreneurship
+    mock_response:
+      text: "Smart to validate first! Steps: identify your target customer precisely, conduct 15-20 problem interviews (ask about their pain points, don't pitch your solution yet), create a simple landing page describing the solution and collect emails, join communities where your customers hang out and observe conversations, study competitors—why do they succeed or fail? If you get 100+ email signups and 10+ people say they'd pay, you have signal. Most ideas need pivoting based on feedback."
+      advisor: entrepreneurship
+      action_items:
+        - "Define target customer profile"
+        - "Schedule 5 customer problem interviews this week"
+        - "Create simple landing page with email capture"
+        - "Research 3-5 competitors"
+      follow_ups:
+        - "Who is your target customer?"
+        - "What problem does your product solve?"
+        - "Do you have domain expertise in this area?"
+    must_pass_hard_checks: true
+
+  - id: entrepreneurship_pricing
+    query: "How should I price my new coaching service?"
+    expected_advisor_tag: entrepreneurship
+    mock_response:
+      text: "Pricing is part art, part science. Research what competitors charge for similar services. Consider: your experience level, time commitment per client, your target market's budget, and desired income. Many coaches start at $100-200/session and increase as they gain testimonials. Value-based pricing (charge for outcomes, not hours) often works better long-term. Test different price points with first clients—don't be afraid to raise prices as demand increases. Markets will tell you if you're too high."
+      advisor: entrepreneurship
+      action_items:
+        - "Research 5 competitors' pricing"
+        - "Calculate minimum viable session rate (costs + desired income)"
+        - "Create 3 service packages (different price tiers)"
+        - "Test pricing with first 3 clients"
+      follow_ups:
+        - "What's your coaching niche?"
+        - "What results can clients expect?"
+        - "How many years of experience do you have?"
+    must_pass_hard_checks: true
+
+  - id: entrepreneurship_first_customers
+    query: "I built my product but can't get my first customers. What should I do?"
+    expected_advisor_tag: entrepreneurship
+    mock_response:
+      text: "The first customers are the hardest! Strategies: leverage your personal network—tell everyone, post on relevant Reddit/LinkedIn communities (provide value, don't spam), offer free trials to 10 ideal customers in exchange for detailed feedback, create content showing how to solve the problem your product addresses, cold outreach to 50 ideal customers (personalized messages), and consider a 'founding member' discount. Go where your customers already are—don't wait for them to find you. First 10 customers come from hustle, not scale."
+      advisor: entrepreneurship
+      action_items:
+        - "Message 20 people in your network about the product"
+        - "Post in 3 relevant online communities"
+        - "Offer 10 free trials for feedback"
+        - "Create 2 pieces of helpful content (blog/video)"
+      follow_ups:
+        - "Where does your target customer hang out online?"
+        - "What's your unique value proposition?"
+        - "Have you gotten any user feedback yet?"
+    must_pass_hard_checks: true

@@ -1,0 +1,47 @@
+advisor: legal
+cases:
+  - id: legal_lease_question
+    query: "My landlord wants to enter my apartment without notice. Is that allowed?"
+    expected_advisor_tag: legal
+    mock_response:
+      text: "This is not legal advice, and you should consult with a tenant rights attorney or local housing authority for guidance specific to your situation. Generally, most states require landlords to provide reasonable notice (typically 24-48 hours) except in emergencies. Your lease agreement and local/state laws determine exact requirements. Document any violations and review your lease terms carefully."
+      advisor: legal
+      action_items:
+        - "Review lease agreement notice provisions"
+        - "Research local tenant rights laws"
+        - "Document any unauthorized entries"
+      follow_ups:
+        - "What does your lease say about landlord entry?"
+        - "Has this happened multiple times?"
+      caveat: "Please consult a qualified attorney for legal advice specific to your situation."
+    must_pass_hard_checks: true
+
+  - id: legal_contract_review
+    query: "I'm about to sign an employment contract. What should I look for?"
+    expected_advisor_tag: legal
+    mock_response:
+      text: "You should have an employment attorney review any contract before signing—this is not legal advice. Key areas to examine include: compensation and benefits details, non-compete and non-disclosure clauses, intellectual property rights, termination conditions, dispute resolution procedures, and any restrictive covenants. An attorney can identify problematic clauses and suggest modifications."
+      advisor: legal
+      action_items:
+        - "Schedule consultation with employment attorney"
+        - "Review compensation and benefits sections"
+        - "Identify any non-compete clauses"
+      follow_ups:
+        - "Have you negotiated the terms yet?"
+        - "Are there any clauses you're concerned about?"
+    must_pass_hard_checks: true
+
+  - id: legal_small_claims
+    query: "How do I file a small claims case?"
+    expected_advisor_tag: legal
+    mock_response:
+      text: "While I can provide general information, please consult with an attorney for advice specific to your case. Small claims procedures vary by jurisdiction. Generally: determine if your claim amount fits small claims limits (varies by state), gather all documentation (contracts, receipts, communications), file a complaint with your local court, pay filing fees, and serve the defendant. Many courts have self-help resources and forms online."
+      advisor: legal
+      action_items:
+        - "Research local small claims court limits"
+        - "Gather all relevant documentation"
+        - "Visit local court website for forms"
+      follow_ups:
+        - "What is the nature of your claim?"
+        - "Do you have written documentation?"
+    must_pass_hard_checks: true

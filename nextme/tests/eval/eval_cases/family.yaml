@@ -1,0 +1,48 @@
+advisor: family
+cases:
+  - id: family_parent_communication
+    query: "My parents keep calling me at work. How do I set boundaries without hurting them?"
+    expected_advisor_tag: family
+    mock_response:
+      text: "Setting boundaries with parents can be delicate. Have a caring conversation explaining your work schedule and availability. Suggest specific times when you can talk (e.g., evenings or weekends), emphasize it's about your job responsibilities not your love for them, propose a regular call schedule so they know when to expect to hear from you, and set up emergency protocols for urgent situations."
+      advisor: family
+      action_items:
+        - "Schedule conversation with parents about availability"
+        - "Propose regular call schedule (e.g., Sunday evenings)"
+        - "Set up emergency contact plan"
+      follow_ups:
+        - "How often are they calling?"
+        - "Are there specific concerns they're calling about?"
+    must_pass_hard_checks: true
+
+  - id: family_sibling_conflict
+    query: "My sister and I haven't spoken in months after an argument. Should I reach out?"
+    expected_advisor_tag: family
+    mock_response:
+      text: "Family rifts can be really painful. Consider: what's preventing you from reaching out—pride, hurt, or fear? If the relationship matters to you, reaching out first shows strength. You could send a simple message: 'I miss you and value our relationship. Can we talk?' Don't expect immediate resolution; healing takes time. Focus on listening and understanding rather than being right."
+      advisor: family
+      action_items:
+        - "Reflect on what you want from the relationship"
+        - "Draft a simple, non-accusatory message"
+        - "Consider suggesting a neutral meeting place"
+      follow_ups:
+        - "What was the argument about?"
+        - "How close were you before this?"
+        - "Are other family members involved?"
+    must_pass_hard_checks: true
+
+  - id: family_parenting_advice
+    query: "My 5-year-old has been having tantrums. What should I do?"
+    expected_advisor_tag: family
+    mock_response:
+      text: "Tantrums at 5 can be challenging. They're often a child's way of expressing big emotions they can't articulate. Strategies: stay calm yourself, validate their feelings ('I see you're upset'), set clear limits on behavior, offer choices when appropriate, ensure adequate sleep and nutrition, and maintain consistent routines. If tantrums are severe or increasing, consulting a pediatrician or child psychologist can help."
+      advisor: family
+      action_items:
+        - "Track tantrum patterns (triggers, time of day)"
+        - "Establish consistent daily routines"
+        - "Practice calm responses"
+      follow_ups:
+        - "When do tantrums typically happen?"
+        - "Has anything changed recently in their life?"
+        - "How do you currently respond to tantrums?"
+    must_pass_hard_checks: true

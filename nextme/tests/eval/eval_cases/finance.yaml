@@ -1,0 +1,47 @@
+advisor: finance
+cases:
+  - id: finance_emergency_fund
+    query: "How much should I save in an emergency fund?"
+    expected_advisor_tag: finance
+    mock_response:
+      text: "A common guideline is 3-6 months of essential expenses, though your specific needs may vary. For someone with $3,000 in monthly expenses, this means $9,000-$18,000. Consider your job stability, dependents, and risk tolerance when determining the right amount. Start small and build gradually—even $1,000 is a good first milestone."
+      advisor: finance
+      action_items:
+        - "Calculate monthly essential expenses"
+        - "Set initial savings goal of $1,000"
+        - "Open high-yield savings account"
+      follow_ups:
+        - "What are your monthly expenses?"
+        - "Do you have dependents?"
+      caveat: "This is general guidance, not personalized financial advice."
+    must_pass_hard_checks: true
+
+  - id: finance_investment_start
+    query: "I want to start investing $500/month. What should I do?"
+    expected_advisor_tag: finance
+    mock_response:
+      text: "Great that you're ready to invest! First, ensure you have an emergency fund and no high-interest debt. For $500/month, consider low-cost index funds through a retirement account (401k, IRA) for tax advantages. A diversified portfolio of stock and bond index funds based on your age and risk tolerance is typically recommended. Markets fluctuate, so be prepared for ups and downs."
+      advisor: finance
+      action_items:
+        - "Verify emergency fund is in place"
+        - "Research retirement account options (401k, IRA)"
+        - "Compare low-cost index fund providers"
+      follow_ups:
+        - "Do you have employer 401k matching?"
+        - "What's your risk tolerance?"
+    must_pass_hard_checks: true
+
+  - id: finance_debt_payoff
+    query: "Should I pay off my credit card debt or invest?"
+    expected_advisor_tag: finance
+    mock_response:
+      text: "Generally, paying off high-interest credit card debt (typically 18-25% APR) should come before investing, as investment returns rarely beat those interest rates consistently. However, if your employer offers 401k matching, contribute enough to get the full match—that's an immediate 100% return. After that, focus aggressively on credit card debt using the avalanche (highest interest first) or snowball (smallest balance first) method."
+      advisor: finance
+      action_items:
+        - "List all debts with interest rates"
+        - "Contribute to employer 401k match if available"
+        - "Create debt payoff plan"
+      follow_ups:
+        - "What's the interest rate on your credit cards?"
+        - "What's your total debt amount?"
+    must_pass_hard_checks: true
