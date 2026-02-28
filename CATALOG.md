@@ -4,7 +4,7 @@
 > Re-generate: `python3 scripts/gen-catalog.py`
 
 **Total: 257 entries** | 11 Agents | 239 Skills | 4 Commands | 3 MCPs
-**Updated:** 2026-02-26
+**Updated:** 2026-02-27
 
 ### By Vendor
 

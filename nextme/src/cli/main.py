@@ -185,5 +185,23 @@ def memory(
             console.print(f"Unknown action: {action}. Use list, search, or forget.")
 
 
+@app.command()
+def serve(
+    host: str = typer.Option("0.0.0.0", "--host", "-h", help="Host to bind to"),
+    port: int = typer.Option(8080, "--port", "-p", help="Port to bind to"),
+) -> None:
+    """Start the FastAPI REST API server."""
+    import uvicorn
+
+    console.print(f"[bold]Starting NextMe API server on {host}:{port}...[/bold]")
+    uvicorn.run(
+        "src.api.app:create_app",
+        factory=True,
+        host=host,
+        port=port,
+        log_level="info",
+    )
+
+
 if __name__ == "__main__":
     app()

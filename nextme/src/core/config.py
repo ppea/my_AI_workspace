@@ -80,6 +80,7 @@ class SecretsConfig:
     telegram_owner_chat_id: str = ""
     todoist_api_token: str = ""
     google_calendar_client_secrets_path: str = ""
+    api_key: str = ""
 
 
 def load_yaml(filename: str) -> dict[str, Any]:
@@ -175,4 +176,5 @@ def load_secrets() -> SecretsConfig:
         telegram_owner_chat_id=secrets.get("telegram_owner_chat_id", ""),
         todoist_api_token=secrets.get("todoist_api_token", ""),
         google_calendar_client_secrets_path=secrets.get("google_calendar_client_secrets_path", ""),
+        api_key=secrets.get("api_key", ""),
     )
