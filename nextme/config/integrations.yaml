@@ -1,0 +1,15 @@
+integrations:
+  google_calendar:
+    enabled: false
+    calendar_id: primary
+    sync_interval_minutes: 15
+  todoist:
+    enabled: false
+    project_prefix: "NextMe"
+    sync_interval_minutes: 10
+    auto_create_tasks: true
+  obsidian:
+    enabled: true
+    vault_path: knowledge/
+    watch_mode: polling
+    poll_interval_seconds: 30
