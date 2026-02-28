@@ -3,10 +3,13 @@ from __future__ import annotations
 
 import asyncio
 from pathlib import Path
+from typing import TYPE_CHECKING
 
 import typer
 from rich.console import Console
 from rich.table import Table
+if TYPE_CHECKING:
+    from src.scheduler.scheduler import NextMeScheduler
 
 app = typer.Typer(name="nextme", help="Personal AI Life Management System")
 console = Console()
@@ -202,6 +205,93 @@ def serve(
         log_level="info",
     )
 
+
+@app.command()
+def scheduler(
+    action: str = typer.Argument("start", help="Action: start, status"),
+) -> None:
+    """Manage the proactive scheduler (start, status)."""
+    from src.core.config import load_scheduler_config, load_secrets
+    from src.scheduler.scheduler import NextMeScheduler
+
+    cfg = load_scheduler_config()
+
+    if action == "status":
+        console.print("[bold]Scheduler Config[/bold]")
+        console.print(f"  Daily briefing: {cfg.daily_briefing_hour:02d}:{cfg.daily_briefing_minute:02d} ({cfg.timezone})")
+        console.print(f"  Weekly review:  weekday={cfg.weekly_review_weekday}, {cfg.weekly_review_hour:02d}:00")
+        console.print(f"  Quiet hours:    {cfg.quiet_hours.start_hour}:00–{cfg.quiet_hours.end_hour}:00 (enabled={cfg.quiet_hours.enabled})")
+        return
+
+    if action == "start":
+        secrets = load_secrets()
+        send_fn = None
+
+        if secrets.telegram_bot_token and secrets.telegram_owner_chat_id:
+            from src.integrations.telegram.bot import NextMeTelegramBot, create_chief
+            chief = create_chief()
+            bot = NextMeTelegramBot(
+                token=secrets.telegram_bot_token,
+                owner_chat_id=secrets.telegram_owner_chat_id,
+                chief=chief,
+            )
+            send_fn = bot.send_notification
+
+        sched = NextMeScheduler(config=cfg, send_fn=send_fn)
+
+        console.print("[bold]Starting NextMe scheduler...[/bold]")
+        asyncio.run(_run_scheduler(sched))
+
+
+async def _run_scheduler(sched: "NextMeScheduler") -> None:
+    await sched.start()
+    try:
+        while True:
+            await asyncio.sleep(60)
+    except (KeyboardInterrupt, asyncio.CancelledError):
+        sched.stop()
+
+
+@app.command()
+def costs(
+    period: str = typer.Option("daily", "--period", "-p", help="Period: daily, monthly, total"),
+) -> None:
+    """Show LLM cost summary per advisor."""
+    import asyncio
+    from src.core.cost_tracker import CostTracker
+
+    tracker = CostTracker()
+
+    async def _show():
+        await tracker.initialize()
+        if period == "total":
+            total = await tracker.total_cost()
+            console.print(f"[bold]Total lifetime LLM cost: ${total:.4f}[/bold]")
+        elif period == "monthly":
+            summaries = await tracker.monthly_summary()
+            _print_cost_table(summaries, "Monthly Cost Summary")
+        else:
+            summaries = await tracker.daily_summary()
+            _print_cost_table(summaries, "Daily Cost Summary")
+
+    asyncio.run(_show())
+
+
+def _print_cost_table(summaries: list, title: str) -> None:
+    table = Table(title=title)
+    table = Table(title=title)
+    table.add_column("Advisor")
+    table.add_column("Calls", justify="right")
+    table.add_column("Input Tokens", justify="right")
+    table.add_column("Output Tokens", justify="right")
+    table.add_column("Cost (USD)", justify="right")
+    for s in summaries:
+        table.add_row(s.advisor, str(s.total_calls),
+                      str(s.total_input_tokens), str(s.total_output_tokens),
+                      f"${s.total_cost_usd:.4f}")
+    if not summaries:
+        table.add_row("(no data)", "-", "-", "-", "$0.0000")
+    console.print(table)
 
 if __name__ == "__main__":
     app()

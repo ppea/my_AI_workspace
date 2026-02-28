@@ -1,0 +1,13 @@
+scheduler:
+  enabled: true
+  db_path: "data/scheduler.db"
+  daily_briefing_hour: 7
+  daily_briefing_minute: 30
+  weekly_review_weekday: 4   # Friday
+  weekly_review_hour: 18
+  timezone: "Asia/Shanghai"
+  quiet_hours:
+    enabled: true
+    start_hour: 22
+    end_hour: 8
+    timezone: "Asia/Shanghai"

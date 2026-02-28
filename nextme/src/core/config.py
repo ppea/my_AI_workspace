@@ -83,6 +83,25 @@ class SecretsConfig:
     api_key: str = ""
 
 
+@dataclass
+class QuietHoursConfig:
+    enabled: bool = True
+    start_hour: int = 22   # 10 PM
+    end_hour: int = 8      # 8 AM
+    timezone: str = "Asia/Shanghai"
+
+
+@dataclass
+class SchedulerConfig:
+    enabled: bool = True
+    db_path: str = "data/scheduler.db"
+    daily_briefing_hour: int = 7
+    daily_briefing_minute: int = 30
+    weekly_review_weekday: int = 4   # 0=Monday, 4=Friday
+    weekly_review_hour: int = 18
+    timezone: str = "Asia/Shanghai"
+    quiet_hours: QuietHoursConfig = field(default_factory=QuietHoursConfig)
+
 def load_yaml(filename: str) -> dict[str, Any]:
     """Load a YAML config file from the config directory."""
     path = CONFIG_DIR / filename
@@ -177,4 +196,25 @@ def load_secrets() -> SecretsConfig:
         todoist_api_token=secrets.get("todoist_api_token", ""),
         google_calendar_client_secrets_path=secrets.get("google_calendar_client_secrets_path", ""),
         api_key=secrets.get("api_key", ""),
+    )
+
+
+def load_scheduler_config() -> SchedulerConfig:
+    data = load_yaml("scheduler.yaml")
+    cfg = data.get("scheduler", {})
+    qh = cfg.get("quiet_hours", {})
+    return SchedulerConfig(
+        enabled=cfg.get("enabled", True),
+        db_path=cfg.get("db_path", "data/scheduler.db"),
+        daily_briefing_hour=cfg.get("daily_briefing_hour", 7),
+        daily_briefing_minute=cfg.get("daily_briefing_minute", 30),
+        weekly_review_weekday=cfg.get("weekly_review_weekday", 4),
+        weekly_review_hour=cfg.get("weekly_review_hour", 18),
+        timezone=cfg.get("timezone", "Asia/Shanghai"),
+        quiet_hours=QuietHoursConfig(
+            enabled=qh.get("enabled", True),
+            start_hour=qh.get("start_hour", 22),
+            end_hour=qh.get("end_hour", 8),
+            timezone=qh.get("timezone", "Asia/Shanghai"),
+        ),
     )
